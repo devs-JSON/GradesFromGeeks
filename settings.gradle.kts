@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "GradesFromGeeks"
 include(":app")
+include(":design_system")
  
