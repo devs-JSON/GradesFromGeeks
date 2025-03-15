@@ -7,17 +7,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import json.gradesfromgeeks.ui.chat.ChatBotScreen
 
 
-fun NavGraphBuilder.testRout(
-    onNavigateTo: (Screen) -> Unit,
-    onNavigateBack: () -> Unit
-) {
+fun NavGraphBuilder.chatBotScreen(onNavigateBack: () -> Unit) {
     composable(
-        route = Screen.Test.route
+        route = Screen.ChatBot.route
     ) {
-        Box(modifier = Modifier.fillMaxSize().background(Color.White)) {
-
-        }
+        ChatBotScreen(onNavigateBack = onNavigateBack)
     }
 }
