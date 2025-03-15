@@ -1,0 +1,6 @@
+@VideoToTextApi_HostAddress = http://localhost:5126
+
+GET {{VideoToTextApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
