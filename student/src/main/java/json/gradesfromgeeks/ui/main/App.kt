@@ -15,7 +15,7 @@ fun App() {
      GGTheme() {
             CompositionLocalProvider() {
                 val navController = rememberNavController()
-                RootNavGraph(navController = navController, startDestination = Screen.Test)
+                RootNavGraph(navController = navController, startDestination = Screen.ChatBot)
             }
     }
 }

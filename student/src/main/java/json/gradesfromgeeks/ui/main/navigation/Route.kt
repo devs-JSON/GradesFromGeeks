@@ -3,7 +3,8 @@ package json.gradesfromgeeks.ui.main.navigation
 import android.os.Bundle
 
 
-const val testRoute = "test"
+const val navigationRouteChatBot = "chatBot"
+
 
 sealed class Screen(
     val route: String,
@@ -20,6 +21,7 @@ sealed class Screen(
         routePath = path
     }
 
-    data object Test : Screen(testRoute)
+    data object ChatBot : Screen(navigationRouteChatBot)
+
 
 }
