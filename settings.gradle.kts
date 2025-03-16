@@ -20,6 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "GradesFromGeeks"
-include(":app")
+include(":student")
 include(":design_system")
  
