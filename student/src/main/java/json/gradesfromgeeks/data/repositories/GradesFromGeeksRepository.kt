@@ -58,13 +58,13 @@ interface GradesFromGeeksRepository {
     //endregion
 
 
+
     suspend fun getUpComingMeetings(): List<Meeting>
 
     //endregion
 
     //region gimmien ai
-    suspend fun generateContent(userContent: String, modelContent: String): GenerateContentResponse
-
+    suspend fun getAnswerAboutUniversityTopic(question: String, university: String): String
 
 
     fun getAvailableTimeForMentor(mentorId: String): List<Date>
