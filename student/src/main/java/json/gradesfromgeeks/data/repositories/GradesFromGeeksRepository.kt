@@ -3,6 +3,7 @@ package json.gradesfromgeeks.data.repositories
 import com.google.ai.client.generativeai.type.GenerateContentResponse
 import json.gradesfromgeeks.data.entity.Date
 import json.gradesfromgeeks.data.entity.Download
+import json.gradesfromgeeks.data.entity.Language
 import json.gradesfromgeeks.data.entity.Meeting
 import json.gradesfromgeeks.data.entity.Mentor
 import json.gradesfromgeeks.data.entity.Notification
@@ -11,6 +12,7 @@ import json.gradesfromgeeks.data.entity.Subject
 import json.gradesfromgeeks.data.entity.Summaries
 import json.gradesfromgeeks.data.entity.University
 import json.gradesfromgeeks.data.entity.User
+import kotlinx.coroutines.flow.Flow
 
 
 interface GradesFromGeeksRepository {
@@ -71,6 +73,13 @@ interface GradesFromGeeksRepository {
 
     // region fields
     suspend fun getFields(): List<String>
+    //endregion
+
+    //region Language and Theme
+    suspend fun saveLanguage(language: Language)
+    fun getLanguage(): Flow<Language>
+    suspend fun setTheme(isDark: Boolean)
+    fun getTheme(): Flow<Boolean?>
     //endregion
 
     //region Levels
