@@ -6,6 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import json.gradesfromgeeks.ui.main.navigation.Screen
 import json.gradesfromgeeks.ui.main.navigation.chatBotScreen
+import json.gradesfromgeeks.ui.main.navigation.ext.navigateTo
+import json.gradesfromgeeks.ui.main.navigation.reviewNavGraph
 
 @Composable
 fun RootNavGraph(
@@ -20,6 +22,9 @@ fun RootNavGraph(
         modifier = modifier,
     ) {
         chatBotScreen(onNavigateBack = navController::navigateUp)
-
+        reviewNavGraph(
+            onNavigateBack = navController::navigateUp,
+            onNavigateTo = navController::navigateTo
+        )
     }
 }
