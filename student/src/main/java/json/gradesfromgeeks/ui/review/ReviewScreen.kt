@@ -52,7 +52,7 @@ import json.gradesFromGeeks.design_system.theme.PlusJakartaSans
 import json.gradesFromGeeks.design_system.theme.Theme
 import json.gradesfromgeeks.R
 import json.gradesfromgeeks.ui.review.composable.VideoLayout
-import json.gradesfromgeeks.ui.utils.setScreenOrientation
+import json.gradesfromgeeks.utils.setScreenOrientation
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 

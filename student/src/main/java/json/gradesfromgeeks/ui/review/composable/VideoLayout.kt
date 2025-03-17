@@ -16,7 +16,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.ui.StyledPlayerView
-import json.gradesfromgeeks.ui.utils.setScreenOrientation
+import json.gradesfromgeeks.utils.setScreenOrientation
 
 @Composable
 fun VideoLayout(exoPlayer: Player, onClick: (Boolean) -> Unit, modifier: Modifier = Modifier) {
