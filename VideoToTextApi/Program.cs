@@ -1,4 +1,8 @@
 
+using Microsoft.Extensions.Configuration;
+using VideoToTextApi.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace VideoToTextApi
 {
     public class Program
@@ -14,6 +18,8 @@ namespace VideoToTextApi
             builder.Services.AddOpenApi();
             builder.Services.AddHttpClient();
             builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+            builder.Services.AddDbContext<JSONDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("JsonCon")));
 
 
 
