@@ -16,8 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.solutionteam.design_system.theme.Gray_1
-import com.solutionteam.design_system.theme.Theme
+import json.gradesFromGeeks.design_system.theme.Gray_1
+import json.gradesFromGeeks.design_system.theme.Theme
 import json.gradesfromgeeks.ui.university.ContentCountUIState
 
 @Composable

@@ -21,8 +21,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.solutionteam.design_system.R
-import com.solutionteam.design_system.theme.Gold
-import com.solutionteam.design_system.theme.Theme
+import json.gradesFromGeeks.design_system.theme.Gold
+import json.gradesFromGeeks.design_system.theme.Theme
 import json.gradesfromgeeks.ui.sharedState.MentorDetailsUIState
 
 @Composable
