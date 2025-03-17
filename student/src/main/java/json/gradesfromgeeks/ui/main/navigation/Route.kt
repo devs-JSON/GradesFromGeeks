@@ -4,6 +4,7 @@ import android.os.Bundle
 
 
 const val navigationRouteChatBot = "chatBot"
+const val navigationRouteReview = "review"
 
 
 sealed class Screen(
@@ -22,6 +23,8 @@ sealed class Screen(
     }
 
     data object ChatBot : Screen(navigationRouteChatBot)
+    data object Review: Screen(navigationRouteReview)
+
 
 
 }
