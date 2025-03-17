@@ -11,6 +11,7 @@ fun appModule() = module {
         AiModel,
         RepositoryModule,
         viewModelModule,
+        VideoPlayerModule
     )
 
     single<Context> { androidApplication().applicationContext }
