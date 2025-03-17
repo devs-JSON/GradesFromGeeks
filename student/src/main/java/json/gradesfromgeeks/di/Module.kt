@@ -10,6 +10,7 @@ fun appModule() = module {
     includes(
         AiModel,
         RepositoryModule,
+        DataStoreModule,
         viewModelModule,
         VideoPlayerModule
     )
