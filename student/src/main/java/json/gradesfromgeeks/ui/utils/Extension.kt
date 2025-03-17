@@ -1,4 +1,4 @@
-package json.gradesfromgeeks.ui.utils
+package json.gradesfromgeeks.utils
 
 import android.app.Activity
 import android.content.Context
