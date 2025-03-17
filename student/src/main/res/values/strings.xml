@@ -66,10 +66,6 @@
     <string name="free">Free</string>
 
 
-    <!-- review section -->
-    <string name="help">Help</string>
-    <string name="click_summarize">Click Summarize button to get ths explain as text.</string>
 
-    <string name="nothing_to_show">Nothing to show</string>
 
 </resources>

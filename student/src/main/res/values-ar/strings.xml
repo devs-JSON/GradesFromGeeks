@@ -64,11 +64,5 @@
     <string name="free">مجاني</string>
 
 
-    <!-- review section -->
-    <string name="help">مساعدة</string>
-    <string name="click_summarize">اضغط زر التلخيص للحصول على الشرح كنص.</string>
-
-    <string name="nothing_to_show">لا يوجد شيئ لعرضه</string>
-
 </resources>
 
