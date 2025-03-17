@@ -7,6 +7,7 @@ import json.gradesfromgeeks.R
 const val navigationRouteChatBot = "chatBot"
 const val navigationRouteReview = "review"
 const val navigationRouteSearch = "search"
+const val navigationRouteProfile = "profile"
 
 
 sealed class Screen(
@@ -31,7 +32,12 @@ sealed class Screen(
         route = navigationRouteSearch,
         selectedIcon = R.drawable.ic_search_selected,
         unselectedIcon = R.drawable.ic_search_unselected
+    )
 
+    data object Profile : Screen(
+        route = navigationRouteProfile,
+        selectedIcon = R.drawable.ic_profile_selected,
+        unselectedIcon = R.drawable.ic_profile_unselected
     )
 
 }
