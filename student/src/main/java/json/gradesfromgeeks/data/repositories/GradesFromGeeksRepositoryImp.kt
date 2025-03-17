@@ -33,4 +33,11 @@ class GradesFromGeeksRepositoryImp(
             university = university
         ).candidates.last().content.parts.first().asTextOrNull()?:" "
     }
+
+    override suspend fun getVideoUrl(): String {
+//        return "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+        return "https://vbcache1152.videobuster.de/clips/1uyTL32KI_M-Xml3RgwTIw/public/vod005/8bsus0u3w54/video-h264-1.mp4"
+    }
+
+
 }

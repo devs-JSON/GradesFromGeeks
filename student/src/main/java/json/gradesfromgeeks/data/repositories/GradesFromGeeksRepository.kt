@@ -5,4 +5,6 @@ interface GradesFromGeeksRepository {
     suspend fun getUniversitiesName(): List<String>
     suspend fun getAnswerAboutUniversityTopic(question: String, university: String): String
 
+    suspend fun getVideoUrl(): String
+
 }
