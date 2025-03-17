@@ -32,9 +32,9 @@ import json.gradesfromgeeks.data.entity.Language
 import json.gradesfromgeeks.ui.profile.component.ProfileCard
 import json.gradesfromgeeks.ui.profile.component.LanguageBottomSheet
 import json.gradesfromgeeks.ui.profile.component.ThemeBottomSheet
+import json.gradesfromgeeks.ui.utils.updateLanguage
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
-import java.util.Locale
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Composable
@@ -170,15 +170,4 @@ private fun ProfileContent(
             )
         }
     }
-}
-
-fun updateLanguage(context: Context, language: String) {
-    val locale = Locale(language)
-    Locale.setDefault(locale)
-    val config = Configuration()
-    config.locale = locale
-    context.resources.updateConfiguration(config, context.resources.displayMetrics)
-
-    context.createConfigurationContext(config)
-
 }
