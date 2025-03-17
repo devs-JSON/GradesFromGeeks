@@ -1,10 +1,12 @@
 package json.gradesfromgeeks.ui.main.navigation
 
 import android.os.Bundle
+import json.gradesfromgeeks.R
 
 
 const val navigationRouteChatBot = "chatBot"
 const val navigationRouteReview = "review"
+const val navigationRouteSearch = "search"
 
 
 sealed class Screen(
@@ -25,6 +27,11 @@ sealed class Screen(
     data object ChatBot : Screen(navigationRouteChatBot)
     data object Review: Screen(navigationRouteReview)
 
+    data object Search : Screen(
+        route = navigationRouteSearch,
+        selectedIcon = R.drawable.ic_search_selected,
+        unselectedIcon = R.drawable.ic_search_unselected
 
+    )
 
 }
