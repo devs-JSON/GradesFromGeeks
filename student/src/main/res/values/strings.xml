@@ -3,4 +3,10 @@
     <string name="start_chatting_with_chat_bot_now">Start chatting with chat bot  now</string>
     <string name="by_select_the_university_you_want_to_learn_more_about_and_obtain_references_from">by select the university you want to learn more about and obtain references from.</string>
 
+    <!-- review section -->
+    <string name="help">Help</string>
+    <string name="click_summarize">Click Summarize button to get ths explain as text.</string>
+
+    <string name="nothing_to_show">Nothing to show</string>
+
 </resources>
