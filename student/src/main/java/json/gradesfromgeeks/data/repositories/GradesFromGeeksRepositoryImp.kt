@@ -1,9 +1,9 @@
 package json.gradesfromgeeks.data.repositories
 
-import com.google.ai.client.generativeai.type.GenerateContentResponse
 import com.google.ai.client.generativeai.type.asTextOrNull
 import json.gradesfromgeeks.data.entity.Date
 import json.gradesfromgeeks.data.entity.Download
+import json.gradesfromgeeks.data.entity.Language
 import json.gradesfromgeeks.data.entity.Meeting
 import json.gradesfromgeeks.data.entity.Mentor
 import json.gradesfromgeeks.data.entity.Notification
@@ -16,6 +16,7 @@ import json.gradesfromgeeks.data.source.BaseRepository
 import json.gradesfromgeeks.data.source.local.UserPreferences
 import json.gradesfromgeeks.data.source.remote.service.GeminiApi
 import json.gradesfromgeeks.ui.notification.NotificationType
+import kotlinx.coroutines.flow.Flow
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -26,6 +27,22 @@ class GradesFromGeeksRepositoryImp(
 ) : BaseRepository(), GradesFromGeeksRepository {
 
 
+
+    override suspend fun saveLanguage(language: Language) {
+        authorizationPreferences.saveLanguage(language)
+    }
+
+    override fun getLanguage(): Flow<Language> {
+        return authorizationPreferences.getLanguage()
+
+    }
+    override suspend fun setTheme(isDark: Boolean) {
+        authorizationPreferences.saveTheme(isDark)
+    }
+
+    override fun getTheme(): Flow<Boolean?> {
+        return authorizationPreferences.isDarkTheme()
+    }
 
     override suspend fun getNotifications(): List<Notification> {
         return listOf(

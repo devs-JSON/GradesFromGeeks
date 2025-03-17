@@ -4,6 +4,9 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import json.gradesfromgeeks.data.entity.Language
+import json.gradesfromgeeks.data.entity.getLanguage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -17,6 +20,8 @@ interface UserPreferences {
     fun isDarkTheme(): Flow<Boolean?>
     suspend fun saveTheme(isDark: Boolean)
 
+    fun getLanguage(): Flow<Language>
+    suspend fun saveLanguage(lang: Language)
 
 }
 
@@ -29,6 +34,17 @@ class UserDataStorePreferencesImp(
             userDataStore.data.map {
                 it[booleanPreferencesKey(START_INSTALL_STATE_KEY)]
             }.first()
+        }
+    }
+    override fun getLanguage(): Flow<Language> {
+        return userDataStore.data.map {
+            it[stringPreferencesKey(PREFERENCES_LANGUAGE)].getLanguage()
+        }
+    }
+
+    override suspend fun saveLanguage(lang: Language) {
+        userDataStore.edit { preferences ->
+            preferences[stringPreferencesKey(PREFERENCES_LANGUAGE)] = lang.abbreviation
         }
     }
 
