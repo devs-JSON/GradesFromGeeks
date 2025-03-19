@@ -10,6 +10,18 @@ data class SubjectDetailsUiState(
     val videoNumber: String = "",
     val mentors: List<String> = emptyList()
 )
+
+data class MeetingUiState(
+    val id: String = "",
+    val subject: String = "",
+    val time: Long = 0L,
+    val mentorName: String = "",
+    val notes: String = "",
+    val reminder: Long = 0L,
+    val enableJoin: Boolean = false,
+)
+
+
 fun Subject.toSubjectUiState() = SubjectDetailsUiState(
     id = id,
     name = name,
