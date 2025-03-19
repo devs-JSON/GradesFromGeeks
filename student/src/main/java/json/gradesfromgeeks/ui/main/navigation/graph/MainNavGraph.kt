@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import json.gradesfromgeeks.ui.seeAll.navigation.homeScreen
+import json.gradesfromgeeks.ui.home.navigation.homeScreen
 import json.gradesfromgeeks.ui.main.navigation.Screen
 import json.gradesfromgeeks.ui.main.navigation.profileScreen
 import json.gradesfromgeeks.ui.main.navigation.searchScreen
@@ -23,7 +23,7 @@ fun MainNavGraph(
         startDestination = Screen.Home.route,
         modifier = modifier,
     ) {
-        json.gradesfromgeeks.ui.seeAll.navigation.homeScreen(onNavigateToRoot)
+        homeScreen(onNavigateToRoot)
         searchScreen(onNavigateToRoot)
         profileScreen(onNavigateToRoot)
     }

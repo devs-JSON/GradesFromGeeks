@@ -4,8 +4,9 @@ import json.gradesfromgeeks.data.entity.Mentor
 import json.gradesfromgeeks.data.entity.University
 import json.gradesfromgeeks.data.repositories.GradesFromGeeksRepository
 import json.gradesfromgeeks.ui.base.BaseViewModel
-import json.gradesfromgeeks.ui.home.toUiState
-import json.gradesfromgeeks.ui.home.toUniversityUiState
+import json.gradesfromgeeks.ui.sharedState.toUiState
+import json.gradesfromgeeks.ui.sharedState.toUniversityUiState
+
 class SeeAllViewModel(
     private val type: SeeAllType,
     private val repository: GradesFromGeeksRepository
