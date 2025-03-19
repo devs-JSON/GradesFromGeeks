@@ -13,6 +13,7 @@ import json.gradesfromgeeks.navigation.mainNavGraph
 import json.gradesfromgeeks.navigation.profileScreen
 import json.gradesfromgeeks.navigation.reviewNavGraph
 import json.gradesfromgeeks.navigation.searchScreen
+import json.gradesfromgeeks.ui.individualMeeting.navigation.individualMeetingNavGraph
 import json.gradesfromgeeks.ui.mentor.navigation.mentorNavGraph
 import json.gradesfromgeeks.ui.seeAll.navigation.onSeeAllScreen
 
@@ -30,6 +31,8 @@ fun RootNavGraph(
         modifier = modifier,
     ) {
         mainNavGraph(onNavigateToRoot = navController::navigateTo)
+        searchScreen(onNavigateTo = navController::navigateTo)
+        profileScreen(onNavigateTo = navController::navigateTo)
         chatBotScreen(onNavigateBack = navController::navigateUp)
         onSeeAllScreen(
             onNavigateTo = navController::navigateTo,
@@ -39,11 +42,13 @@ fun RootNavGraph(
             onNavigateToRoot = navController::navigateTo,
             onNavigateBack = navController::navigateUp
         )
+        individualMeetingNavGraph(
+            onNavigateBack = navController::navigateUp
+        )
         reviewNavGraph(
             onNavigateBack = navController::navigateUp,
             onNavigateTo = navController::navigateTo
         )
-        searchScreen(onNavigateTo = navController::navigateTo)
-        profileScreen(onNavigateTo = navController::navigateTo)
+
     }
 }

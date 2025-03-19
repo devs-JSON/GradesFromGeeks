@@ -17,6 +17,8 @@ const val navigationRouteMentor = "mentor"
 const val navigationRouteUniversity = "university"
 const val navigationRouteSubject = "Subject"
 
+const val navigationRouteIndividualMeeting = "individualMeeting"
+
 
 
 sealed class Screen(
@@ -63,14 +65,12 @@ sealed class Screen(
         unselectedIcon = R.drawable.ic_profile_unselected
     )
 
+    data object SeeAll : Screen(navigationRouteSeeAll)
     data object Mentor : Screen(route = navigationRouteMentor)
-
     data object University : Screen(route = navigationRouteUniversity)
-
     data object Subject : Screen(route = navigationRouteSubject)
 
-
-    data object SeeAll : Screen(navigationRouteSeeAll)
+    data object IndividualMeeting : Screen(navigationRouteIndividualMeeting)
     data object Review: Screen(navigationRouteReview)
 
 }

@@ -18,7 +18,7 @@ fun NavGraphBuilder.mentorNavGraph(onNavigateToRoot: (Screen) -> Unit, onNavigat
             onNavigateTo = {
                 when (it) {
                     is MentorUIEffect.NavigateToScheduleMeeting -> {
-
+                        Screen.IndividualMeeting.also(onNavigateToRoot)
                     }
 
                     else -> {}
