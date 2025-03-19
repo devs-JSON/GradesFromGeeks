@@ -1,4 +1,4 @@
-package json.gradesfromgeeks.ui.main.navigation
+package json.gradesfromgeeks.navigation
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -10,8 +10,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import json.gradesfromgeeks.ui.chat.ChatBotScreen
 import json.gradesfromgeeks.ui.main.screen.MainScreen
-import json.gradesfromgeeks.ui.main.navigation.ext.navigateTo
-import json.gradesfromgeeks.ui.main.navigation.graph.MainNavGraph
+import json.gradesfromgeeks.navigation.ext.navigateTo
+import json.gradesfromgeeks.navigation.graph.MainNavGraph
 import json.gradesfromgeeks.ui.profile.ProfileScreen
 import json.gradesfromgeeks.ui.review.ReviewScreen
 import json.gradesfromgeeks.ui.search.SearchScreen

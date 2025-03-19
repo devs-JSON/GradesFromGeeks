@@ -1,4 +1,4 @@
-package json.gradesfromgeeks.ui.main.navigation.graph
+package json.gradesfromgeeks.navigation.graph
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -7,9 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import json.gradesfromgeeks.ui.home.navigation.homeScreen
-import json.gradesfromgeeks.ui.main.navigation.Screen
-import json.gradesfromgeeks.ui.main.navigation.profileScreen
-import json.gradesfromgeeks.ui.main.navigation.searchScreen
+import json.gradesfromgeeks.navigation.Screen
+import json.gradesfromgeeks.navigation.profileScreen
+import json.gradesfromgeeks.navigation.searchScreen
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Composable

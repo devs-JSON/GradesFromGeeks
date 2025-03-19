@@ -5,7 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import json.gradesfromgeeks.ui.home.HomeScreen
 import json.gradesfromgeeks.ui.home.HomeUIEffect
-import json.gradesfromgeeks.ui.main.navigation.Screen
+import json.gradesfromgeeks.navigation.Screen
 
 
 fun NavGraphBuilder.homeScreen(onNavigateTo: (Screen) -> Unit) {

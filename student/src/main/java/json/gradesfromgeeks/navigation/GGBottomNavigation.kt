@@ -1,4 +1,4 @@
-package json.gradesfromgeeks.ui.main.navigation
+package json.gradesfromgeeks.navigation
 
 import android.annotation.SuppressLint
 import android.util.Log

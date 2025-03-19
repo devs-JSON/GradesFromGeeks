@@ -1,4 +1,4 @@
-package json.gradesfromgeeks.ui.main.navigation
+package json.gradesfromgeeks.navigation
 
 import android.os.Bundle
 import json.gradesfromgeeks.R

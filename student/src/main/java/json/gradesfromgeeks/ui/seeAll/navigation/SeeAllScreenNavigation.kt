@@ -3,7 +3,7 @@ package json.gradesfromgeeks.ui.seeAll.navigation
 import androidx.core.os.bundleOf
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import json.gradesfromgeeks.ui.main.navigation.Screen
+import json.gradesfromgeeks.navigation.Screen
 import json.gradesfromgeeks.ui.seeAll.SeeAllScreen
 import json.gradesfromgeeks.ui.seeAll.SeeAllType
 import json.gradesfromgeeks.ui.seeAll.toSeeAllType

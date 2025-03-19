@@ -1,4 +1,4 @@
-package json.gradesfromgeeks.ui.main.navigation.graph
+package json.gradesfromgeeks.navigation.graph
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -6,13 +6,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import json.gradesfromgeeks.ui.main.navigation.Screen
-import json.gradesfromgeeks.ui.main.navigation.chatBotScreen
-import json.gradesfromgeeks.ui.main.navigation.ext.navigateTo
-import json.gradesfromgeeks.ui.main.navigation.mainNavGraph
-import json.gradesfromgeeks.ui.main.navigation.profileScreen
-import json.gradesfromgeeks.ui.main.navigation.reviewNavGraph
-import json.gradesfromgeeks.ui.main.navigation.searchScreen
+import json.gradesfromgeeks.navigation.Screen
+import json.gradesfromgeeks.navigation.chatBotScreen
+import json.gradesfromgeeks.navigation.ext.navigateTo
+import json.gradesfromgeeks.navigation.mainNavGraph
+import json.gradesfromgeeks.navigation.profileScreen
+import json.gradesfromgeeks.navigation.reviewNavGraph
+import json.gradesfromgeeks.navigation.searchScreen
+import json.gradesfromgeeks.ui.mentor.navigation.mentorNavGraph
 import json.gradesfromgeeks.ui.seeAll.navigation.onSeeAllScreen
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
@@ -32,6 +33,10 @@ fun RootNavGraph(
         chatBotScreen(onNavigateBack = navController::navigateUp)
         onSeeAllScreen(
             onNavigateTo = navController::navigateTo,
+            onNavigateBack = navController::navigateUp
+        )
+        mentorNavGraph(
+            onNavigateToRoot = navController::navigateTo,
             onNavigateBack = navController::navigateUp
         )
         reviewNavGraph(

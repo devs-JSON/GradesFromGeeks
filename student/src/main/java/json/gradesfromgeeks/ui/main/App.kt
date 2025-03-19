@@ -10,8 +10,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.navigation.compose.rememberNavController
 import json.gradesFromGeeks.design_system.theme.GGTheme
-import json.gradesfromgeeks.ui.main.navigation.Screen
-import json.gradesfromgeeks.ui.main.navigation.graph.RootNavGraph
+import json.gradesfromgeeks.navigation.Screen
+import json.gradesfromgeeks.navigation.graph.RootNavGraph
 import json.gradesfromgeeks.ui.main.screen.AppViewModel
 import json.gradesfromgeeks.ui.utils.updateLanguage
 import org.koin.androidx.compose.koinViewModel
