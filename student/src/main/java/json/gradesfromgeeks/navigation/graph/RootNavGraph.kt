@@ -16,6 +16,7 @@ import json.gradesfromgeeks.navigation.searchScreen
 import json.gradesfromgeeks.ui.individualMeeting.navigation.individualMeetingNavGraph
 import json.gradesfromgeeks.ui.mentor.navigation.mentorNavGraph
 import json.gradesfromgeeks.ui.seeAll.navigation.onSeeAllScreen
+import json.gradesfromgeeks.ui.university.navigation.universityNavGraph
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Composable
@@ -43,6 +44,10 @@ fun RootNavGraph(
             onNavigateBack = navController::navigateUp
         )
         individualMeetingNavGraph(
+            onNavigateBack = navController::navigateUp
+        )
+        universityNavGraph(
+            onNavigateTo = navController::navigateTo,
             onNavigateBack = navController::navigateUp
         )
         reviewNavGraph(

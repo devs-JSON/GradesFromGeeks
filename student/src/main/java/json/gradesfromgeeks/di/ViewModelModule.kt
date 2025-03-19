@@ -13,6 +13,7 @@ import json.gradesfromgeeks.ui.review.ReviewViewModel
 import json.gradesfromgeeks.ui.search.SearchViewModel
 import json.gradesfromgeeks.ui.seeAll.SeeAllViewModel
 import json.gradesfromgeeks.ui.subject.SubjectViewModel
+import json.gradesfromgeeks.ui.university.UniversityViewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
@@ -31,4 +32,5 @@ val viewModelModule = module {
     viewModelOf(::AppViewModel)
     viewModelOf(::PDFReaderViewModel)
     viewModelOf(::SubjectViewModel)
+    viewModelOf(::UniversityViewModel)
 }
