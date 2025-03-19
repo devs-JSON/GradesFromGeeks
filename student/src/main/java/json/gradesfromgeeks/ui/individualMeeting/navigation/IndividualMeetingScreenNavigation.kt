@@ -12,7 +12,6 @@ fun NavGraphBuilder.individualMeetingNavGraph(
         route = Screen.IndividualMeeting.route
     ) {
         IndividualMeetingScreen(
-            navigateTo = {},
             navigateBack = onNavigateBack
         )
     }

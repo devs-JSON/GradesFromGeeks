@@ -26,14 +26,20 @@ fun NavGraphBuilder.homeScreen(onNavigateTo: (Screen) -> Unit) {
                     }
 
                     is HomeUIEffect.NavigateToUniversityProfile -> {
-
+                        Screen.University.args = bundleOf(Pair("id", navigate.id))
+                        Screen.University.withClearBackStack()
+                            .also(onNavigateTo)
                     }
 
                     is HomeUIEffect.NavigateToSubject -> {
-
+                        Screen.Subject.args = bundleOf(Pair("id", navigate.id))
+                        Screen.Subject.withClearBackStack()
+                            .also(onNavigateTo)
                     }
 
-                    HomeUIEffect.NavigateToNotification -> {}
+                    HomeUIEffect.NavigateToNotification -> {
+
+                    }
 
                     else -> {}
                 }

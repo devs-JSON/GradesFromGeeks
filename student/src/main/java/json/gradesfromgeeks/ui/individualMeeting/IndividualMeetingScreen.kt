@@ -30,7 +30,6 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun IndividualMeetingScreen(
-    navigateTo: () -> Unit,
     navigateBack: () -> Unit,
     viewModel: IndividualMeetingViewModel = koinViewModel(),
 ) {
