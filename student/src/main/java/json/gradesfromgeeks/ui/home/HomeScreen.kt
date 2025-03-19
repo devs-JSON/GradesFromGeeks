@@ -1,5 +1,7 @@
 package json.gradesfromgeeks.ui.home
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,8 +17,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -30,23 +36,54 @@ import json.gradesfromgeeks.R
 import json.gradesfromgeeks.ui.home.component.ChatBotButton
 import json.gradesfromgeeks.ui.home.component.HomeAppBar
 import json.gradesfromgeeks.ui.home.component.InComingMeetingCard
+import json.gradesfromgeeks.ui.sharedState.SeeAllType
 import json.gradesfromgeeks.ui.sharedState.showSeeAll
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen(
+    viewModel: HomeViewModel = koinViewModel(),
+    navigateTo: (HomeUIEffect) -> Unit,
 ) {
 
+    val state by viewModel.state.collectAsState()
+    val effect by viewModel.effect.collectAsState(initial = null)
+    val context = LocalContext.current
+
     HomeContent(
-        state = HomeUIState(),
-        onNavigateToSubjectScreen = {},
-        onNavigateToSeeALLUniversities = {},
-        onNavigateToChatBot = {},
-        onNavigateToMentorProfile = {},
-        onNavigateToNotification = {},
-        onNavigateToSeeAllMentors = {},
-        onNavigateToSeeALLSubjects = {},
-        onNavigateToUniversityProfile = {}
+        state = state,
+        onNavigateToSeeAllMentors = { navigateTo(HomeUIEffect.NavigateToSeeAll(SeeAllType.Mentors)) },
+        onNavigateToChatBot = { navigateTo(HomeUIEffect.NavigateToChatBooks) },
+        onNavigateToMentorProfile = { navigateTo(HomeUIEffect.NavigateToMentorProfile(it)) },
+        onNavigateToSubjectScreen = { navigateTo(HomeUIEffect.NavigateToSubject(it)) },
+        onNavigateToUniversityProfile = { navigateTo(HomeUIEffect.NavigateToUniversityProfile(it)) },
+        onNavigateToSeeALLUniversities = { navigateTo(HomeUIEffect.NavigateToSeeAll(SeeAllType.Universities)) },
+        onNavigateToSeeALLSubjects = { navigateTo(HomeUIEffect.NavigateToSeeAll(SeeAllType.Subjects)) },
+        onNavigateToNotification = { navigateTo(HomeUIEffect.NavigateToNotification) },
     )
+
+    LaunchedEffect(key1 = !state.isLoading && !state.isError) {
+        viewModel.effect.collectLatest {
+            onEffect(effect, context)
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        while (state.upComingMeetings.isNotEmpty()) {
+            viewModel.updateMeeting()
+            delay(60_000)
+        }
+    }
+}
+
+
+private fun onEffect(effect: HomeUIEffect?, context: Context) {
+    when (effect) {
+        HomeUIEffect.HomeError -> Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
+        else -> {}
+    }
 }
 
 

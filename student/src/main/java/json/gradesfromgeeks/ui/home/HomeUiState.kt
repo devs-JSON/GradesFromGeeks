@@ -1,7 +1,11 @@
 package json.gradesfromgeeks.ui.home
 
+import json.gradesfromgeeks.data.entity.Meeting
 import json.gradesfromgeeks.data.entity.Subject
+import json.gradesfromgeeks.ui.sharedState.MentorUiState
 import json.gradesfromgeeks.ui.sharedState.UniversityUiState
+import json.gradesfromgeeks.utils.isLessThanXMinutes
+import java.util.concurrent.TimeUnit
 
 data class HomeUIState(
     val mentors: List<MentorUiState> = emptyList(),
@@ -11,14 +15,6 @@ data class HomeUIState(
 
     val isLoading: Boolean = false,
     val isError: Boolean = false,
-)
-
-data class MentorUiState(
-    val id: String = "",
-    val name: String = "",
-    val imageUrl: String = "",
-    val rate: Double = 0.0,
-    val numberReviewers: Int = 0
 )
 
 data class SubjectDetailsUiState(
@@ -51,3 +47,21 @@ fun Subject.toSubjectUiState() = SubjectDetailsUiState(
 )
 
 fun List<Subject>.toSubjectUiState() = map { it.toSubjectUiState() }
+
+fun Meeting.toUpCompingMeetingUiState() = MeetingUiState(
+    id = id,
+    time = time,
+    subject = subject,
+    notes = notes,
+    mentorName = mentor.name,
+    enableJoin = time.isLessThanXMinutes(),
+    reminder = getReminderTime(time)
+)
+
+fun List<Meeting>.toUpCompingMeetingUiState() = map { it.toUpCompingMeetingUiState() }
+
+fun getReminderTime(timestamp: Long): Long {
+    val currentTimestamp = System.currentTimeMillis()
+    val differenceMillis = timestamp - currentTimestamp
+    return TimeUnit.MILLISECONDS.toMinutes(differenceMillis)
+}
