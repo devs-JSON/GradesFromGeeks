@@ -12,13 +12,16 @@ import androidx.navigation.compose.rememberNavController
 import json.gradesFromGeeks.design_system.theme.GGTheme
 import json.gradesfromgeeks.ui.main.navigation.Screen
 import json.gradesfromgeeks.ui.main.navigation.graph.RootNavGraph
+import json.gradesfromgeeks.ui.main.screen.AppViewModel
 import json.gradesfromgeeks.ui.utils.updateLanguage
 import org.koin.androidx.compose.koinViewModel
 
 @RequiresApi(Build.VERSION_CODES.R)
 @Composable
 fun App(viewModel: AppViewModel = koinViewModel()) {
+    val firstTime by viewModel.isFirstTimeOpenApp.collectAsState()
     val language by viewModel.language.collectAsState()
+    val isLogin by viewModel.isLogin.collectAsState()
     val isDarkTheme by viewModel.theme.collectAsState()
 
     language?.let {
@@ -27,7 +30,8 @@ fun App(viewModel: AppViewModel = koinViewModel()) {
             CompositionLocalProvider(LocalLayoutDirection provides it.layoutDirection) {
                 val navController = rememberNavController()
 
-                RootNavGraph(navController = navController, startDestination = Screen.Profile)
+                RootNavGraph(navController = navController, startDestination = Screen.Main)
+
             }
         }
     }

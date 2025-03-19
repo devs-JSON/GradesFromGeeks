@@ -1,6 +1,25 @@
 package json.gradesfromgeeks.ui.home
 
 import json.gradesfromgeeks.data.entity.Subject
+import json.gradesfromgeeks.ui.sharedState.UniversityUiState
+
+data class HomeUIState(
+    val mentors: List<MentorUiState> = emptyList(),
+    val subjects: List<SubjectDetailsUiState> = emptyList(),
+    val university: List<UniversityUiState> = emptyList(),
+    val upComingMeetings: List<MeetingUiState> = emptyList(),
+
+    val isLoading: Boolean = false,
+    val isError: Boolean = false,
+)
+
+data class MentorUiState(
+    val id: String = "",
+    val name: String = "",
+    val imageUrl: String = "",
+    val rate: Double = 0.0,
+    val numberReviewers: Int = 0
+)
 
 data class SubjectDetailsUiState(
     val id: String = "",

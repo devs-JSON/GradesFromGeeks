@@ -3,11 +3,14 @@ package json.gradesfromgeeks.ui.main.navigation
 import android.os.Bundle
 import json.gradesfromgeeks.R
 
+const val navigationRouteMain = "main"
+const val navigationRouteHome = "home"
 
 const val navigationRouteChatBot = "chatBot"
 const val navigationRouteReview = "review"
 const val navigationRouteSearch = "search"
 const val navigationRouteProfile = "profile"
+const val navigationRouteDownloads = "downloads"
 
 
 sealed class Screen(
@@ -25,8 +28,22 @@ sealed class Screen(
         routePath = path
     }
 
+
+    data object Main : Screen(navigationRouteMain)
+
+    data object Home : Screen(
+        route = navigationRouteHome,
+        selectedIcon = R.drawable.ic_home_selected,
+        unselectedIcon = R.drawable.ic_home_unselected
+    )
+
+    data object Downloads : Screen(
+        route = navigationRouteDownloads,
+        selectedIcon = R.drawable.ic_download_selected,
+        unselectedIcon = R.drawable.ic_download_unselected
+    )
+
     data object ChatBot : Screen(navigationRouteChatBot)
-    data object Review: Screen(navigationRouteReview)
 
     data object Search : Screen(
         route = navigationRouteSearch,
@@ -39,5 +56,7 @@ sealed class Screen(
         selectedIcon = R.drawable.ic_profile_selected,
         unselectedIcon = R.drawable.ic_profile_unselected
     )
+
+    data object Review: Screen(navigationRouteReview)
 
 }

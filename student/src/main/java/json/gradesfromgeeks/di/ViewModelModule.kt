@@ -3,7 +3,7 @@ package json.gradesfromgeeks.di
 import json.gradesfromgeeks.ui.chat.ChatBotViewModel
 import json.gradesfromgeeks.ui.downloads.DownloadsViewModel
 import json.gradesfromgeeks.ui.individualMeeting.IndividualMeetingViewModel
-import json.gradesfromgeeks.ui.main.AppViewModel
+import json.gradesfromgeeks.ui.main.screen.AppViewModel
 import json.gradesfromgeeks.ui.notification.NotificationsViewModel
 import json.gradesfromgeeks.ui.pdfReader.PDFReaderViewModel
 import json.gradesfromgeeks.ui.profile.ProfileViewModel
