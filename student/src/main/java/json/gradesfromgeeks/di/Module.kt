@@ -10,7 +10,9 @@ fun appModule() = module {
     includes(
         AiModel,
         RepositoryModule,
+        DataStoreModule,
         viewModelModule,
+        VideoPlayerModule
     )
 
     single<Context> { androidApplication().applicationContext }
