@@ -25,14 +25,12 @@ fun NavGraphBuilder.onSeeAllScreen(onNavigateTo: (Screen) -> Unit, onNavigateBac
 
                     SeeAllType.Universities -> {
                         Screen.University.args = bundleOf(Pair("id", id))
-                        Screen.University.withClearBackStack()
-                            .also(onNavigateTo)
+                        Screen.University.withClearBackStack().also(onNavigateTo)
                     }
 
                     SeeAllType.Subjects -> {
                         Screen.Subject.args = bundleOf(Pair("id", id))
-                        Screen.Subject.withClearBackStack()
-                            .also(onNavigateTo)
+                        Screen.Subject.withClearBackStack().also(onNavigateTo)
                     }
                 }
             },

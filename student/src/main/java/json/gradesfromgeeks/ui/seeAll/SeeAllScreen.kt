@@ -121,6 +121,18 @@ private fun SeeAllContent(
                         onClick = { navigateTo(university.id) }
                     )
                 }
+
+                items(state.subjects) { university ->
+                    GGUniversity(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(height = 215.dp),
+                        name = university.name,
+                        address = university.address,
+                        imageUrl = university.imageUrl,
+                        onClick = { navigateTo(university.id) }
+                    )
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 package json.gradesfromgeeks.ui.seeAll
 
 import json.gradesfromgeeks.ui.sharedState.MentorUiState
+import json.gradesfromgeeks.ui.sharedState.SubjectsUiState
 import json.gradesfromgeeks.ui.sharedState.UniversityUiState
 
 
@@ -8,6 +9,7 @@ data class SeeAllUIState(
     val type: SeeAllType = SeeAllType.Subjects,
     val universities: List<UniversityUiState> = emptyList(),
     val mentors: List<MentorUiState> = emptyList(),
+    val subjects: List<SubjectsUiState> = emptyList(),
 
     val isLoading: Boolean = false,
     val isError: Boolean = false,

@@ -1,11 +1,15 @@
 package json.gradesfromgeeks.ui.seeAll
 
+import androidx.lifecycle.viewModelScope
 import json.gradesfromgeeks.data.entity.Mentor
+import json.gradesfromgeeks.data.entity.Subject
 import json.gradesfromgeeks.data.entity.University
 import json.gradesfromgeeks.data.repositories.GradesFromGeeksRepository
 import json.gradesfromgeeks.ui.base.BaseViewModel
+import json.gradesfromgeeks.ui.sharedState.toSubjectsUiState
 import json.gradesfromgeeks.ui.sharedState.toUiState
 import json.gradesfromgeeks.ui.sharedState.toUniversityUiState
+import kotlinx.coroutines.launch
 
 class SeeAllViewModel(
     private val type: SeeAllType,
@@ -34,6 +38,7 @@ class SeeAllViewModel(
         updateState { it.copy(mentors = mentor.toUiState(), isLoading = false) }
     }
 
+
     private fun getUniversities() {
         tryToExecute(repository::getUniversities, ::onSuccessUniversity, ::onError)
     }
@@ -41,6 +46,17 @@ class SeeAllViewModel(
     private fun onSuccessUniversity(universities: List<University>) {
         updateState {
             it.copy(universities = universities.toUniversityUiState(), isLoading = false)
+        }
+    }
+
+
+    private fun getSubjects() {
+        tryToExecute(repository::getSubject, ::onSuccessSubjects, ::onError)
+    }
+
+    private fun onSuccessSubjects(subjects: List<Subject>) {
+        updateState {
+            it.copy(subjects = subjects.toSubjectsUiState(), isLoading = false)
         }
     }
 
