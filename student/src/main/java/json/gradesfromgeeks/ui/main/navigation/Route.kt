@@ -7,10 +7,16 @@ const val navigationRouteMain = "main"
 const val navigationRouteHome = "home"
 
 const val navigationRouteChatBot = "chatBot"
+const val navigationRouteSeeAll = "seeAll"
 const val navigationRouteReview = "review"
 const val navigationRouteSearch = "search"
 const val navigationRouteProfile = "profile"
 const val navigationRouteDownloads = "downloads"
+
+const val navigationRouteMentor = "mentor"
+const val navigationRouteUniversity = "university"
+const val navigationRouteSubject = "Subject"
+
 
 
 sealed class Screen(
@@ -57,6 +63,14 @@ sealed class Screen(
         unselectedIcon = R.drawable.ic_profile_unselected
     )
 
+    data object Mentor : Screen(route = navigationRouteMentor)
+
+    data object University : Screen(route = navigationRouteUniversity)
+
+    data object Subject : Screen(route = navigationRouteSubject)
+
+
+    data object SeeAll : Screen(navigationRouteSeeAll)
     data object Review: Screen(navigationRouteReview)
 
 }

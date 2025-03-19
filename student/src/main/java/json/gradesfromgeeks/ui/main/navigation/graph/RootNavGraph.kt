@@ -13,6 +13,7 @@ import json.gradesfromgeeks.ui.main.navigation.mainNavGraph
 import json.gradesfromgeeks.ui.main.navigation.profileScreen
 import json.gradesfromgeeks.ui.main.navigation.reviewNavGraph
 import json.gradesfromgeeks.ui.main.navigation.searchScreen
+import json.gradesfromgeeks.ui.seeAll.navigation.onSeeAllScreen
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Composable
@@ -29,6 +30,10 @@ fun RootNavGraph(
     ) {
         mainNavGraph(onNavigateToRoot = navController::navigateTo)
         chatBotScreen(onNavigateBack = navController::navigateUp)
+        onSeeAllScreen(
+            onNavigateTo = navController::navigateTo,
+            onNavigateBack = navController::navigateUp
+        )
         reviewNavGraph(
             onNavigateBack = navController::navigateUp,
             onNavigateTo = navController::navigateTo

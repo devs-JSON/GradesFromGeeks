@@ -1,5 +1,6 @@
 package json.gradesfromgeeks.ui.home.navigation
 
+import androidx.core.os.bundleOf
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import json.gradesfromgeeks.ui.home.HomeScreen
@@ -20,7 +21,8 @@ fun NavGraphBuilder.homeScreen(onNavigateTo: (Screen) -> Unit) {
                     }
 
                     is HomeUIEffect.NavigateToSeeAll -> {
-
+                        Screen.SeeAll.args = bundleOf(Pair("type", navigate.type.value))
+                        Screen.SeeAll.withClearBackStack().also(onNavigateTo)
                     }
 
                     is HomeUIEffect.NavigateToUniversityProfile -> {
