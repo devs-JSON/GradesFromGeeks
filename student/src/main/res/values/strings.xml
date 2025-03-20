@@ -64,8 +64,10 @@
     <string name="meetings">Meetings</string>
     <string name="schedule_one_to_one">Schedule one to one Meeting</string>
     <string name="free">Free</string>
-
-
+    <string name="or_by_raising_your_reference_and_answering_the_question_from_it">Or by raising your reference and answering the question from it</string>
+    <string name="document_attached">Document attached ✓</string>
+    <string name="select_university">Select University</string>
+    <string name="upload_your_pdf">Upload your pdf</string>
 
 
 </resources>

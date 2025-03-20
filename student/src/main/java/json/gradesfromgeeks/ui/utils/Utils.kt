@@ -1,6 +1,7 @@
 package json.gradesfromgeeks.ui.utils
 
 import android.content.Context
+import android.net.Uri
 import android.content.res.Configuration
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
@@ -9,6 +10,9 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.UrlAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
+import com.tom_roush.pdfbox.pdmodel.PDDocument
+import com.tom_roush.pdfbox.text.PDFTextStripper
+import java.io.IOException
 import java.util.Locale
 
 object Utils {
@@ -33,6 +37,21 @@ object Utils {
         }
         return annotatedLinkString
     }
+    fun readTextFromUri(uri: Uri, context: Context): String {
+        var textResult = ""
+        context.contentResolver.openInputStream(uri)?.use { inputStream ->
+            try {
+                PDDocument.load(inputStream).use { pdfDocument ->
+                    if (!pdfDocument.isEncrypted) {
+                        textResult = PDFTextStripper().getText(pdfDocument)
+                    }
+                }
+            } catch (e: IOException) {
+                textResult = "Error reading PDF: ${e.localizedMessage}"
+            }
+        }
+        return textResult
+    }
 }
 
 
@@ -44,5 +63,6 @@ fun updateLanguage(context: Context, language: String) {
     context.resources.updateConfiguration(config, context.resources.displayMetrics)
 
     context.createConfigurationContext(config)
+
 
 }

@@ -12,7 +12,8 @@ fun appModule() = module {
         RepositoryModule,
         DataStoreModule,
         viewModelModule,
-        VideoPlayerModule
+        VideoPlayerModule,
+        networkModule
     )
 
     single<Context> { androidApplication().applicationContext }

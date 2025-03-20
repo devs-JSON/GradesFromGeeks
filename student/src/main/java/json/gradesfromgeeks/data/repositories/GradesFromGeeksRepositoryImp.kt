@@ -1,6 +1,8 @@
 package json.gradesfromgeeks.data.repositories
 
 import com.google.ai.client.generativeai.type.asTextOrNull
+import json.gradesfromgeeks.data.entity.HuggingFaceRequest
+import json.gradesfromgeeks.data.entity.InputData
 import json.gradesfromgeeks.data.entity.Date
 import json.gradesfromgeeks.data.entity.Download
 import json.gradesfromgeeks.data.entity.Language
@@ -15,6 +17,7 @@ import json.gradesfromgeeks.data.entity.User
 import json.gradesfromgeeks.data.source.BaseRepository
 import json.gradesfromgeeks.data.source.local.UserPreferences
 import json.gradesfromgeeks.data.source.remote.service.GeminiApi
+import json.gradesfromgeeks.data.source.remote.service.HuggingFaceApiService
 import json.gradesfromgeeks.ui.notification.NotificationType
 import kotlinx.coroutines.flow.Flow
 import java.text.SimpleDateFormat
@@ -23,10 +26,21 @@ import java.util.Locale
 
 class GradesFromGeeksRepositoryImp(
     private val geminiApi: GeminiApi,
+    private val huggingFaceApi: HuggingFaceApiService,
     private val authorizationPreferences: UserPreferences
 ) : BaseRepository(), GradesFromGeeksRepository {
 
+    override suspend fun queryDocument(context: String, question: String): String {
+        val response = huggingFaceApi.documentQuestionAnswering(
+            HuggingFaceRequest(InputData(question, context))
+        )
 
+        return if (response.isSuccessful) {
+            response.body()?.answer ?: "No answer found"
+        } else {
+            "Error: ${response.errorBody()?.string()}"
+        }
+    }
 
     override suspend fun saveLanguage(language: Language) {
         authorizationPreferences.saveLanguage(language)

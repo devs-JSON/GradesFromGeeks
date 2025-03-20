@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface GradesFromGeeksRepository {
+    suspend fun queryDocument(context: String, question: String): String
     suspend fun getVideoUrl(): String
     suspend fun getUniversitiesName(): List<String>
     suspend fun getIsFirstTimeUseApp(): Boolean

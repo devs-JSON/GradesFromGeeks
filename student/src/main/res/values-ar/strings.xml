@@ -63,6 +63,9 @@
     <string name="schedule_one_to_one">حدد موعدًا لاجتماع واحد</string>
     <string name="free">مجاني</string>
 
-
+    <string name="or_by_raising_your_reference_and_answering_the_question_from_it">أو عن طريق رفع مرجعك والإجابة على السؤال منه</string>
+    <string name="document_attached">تم إرفاق المستند ✓</string>
+    <string name="select_university">اختر الجامعة</string>
+    <string name="upload_your_pdf">ارفع ملف PDF الخاص بك</string>
 </resources>
 
