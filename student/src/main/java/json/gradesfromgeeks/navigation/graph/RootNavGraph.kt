@@ -15,6 +15,7 @@ import json.gradesfromgeeks.navigation.reviewNavGraph
 import json.gradesfromgeeks.navigation.searchScreen
 import json.gradesfromgeeks.ui.individualMeeting.navigation.individualMeetingNavGraph
 import json.gradesfromgeeks.ui.mentor.navigation.mentorNavGraph
+import json.gradesfromgeeks.ui.notification.navigation.notificationNavGraph
 import json.gradesfromgeeks.ui.seeAll.navigation.onSeeAllScreen
 import json.gradesfromgeeks.ui.subject.navigation.subjectNavGraph
 import json.gradesfromgeeks.ui.university.navigation.universityNavGraph
@@ -59,6 +60,8 @@ fun RootNavGraph(
             onNavigateBack = navController::navigateUp,
             onNavigateTo = navController::navigateTo
         )
-
+        notificationNavGraph(
+            onNavigateBack = navController::navigateUp
+        )
     }
 }

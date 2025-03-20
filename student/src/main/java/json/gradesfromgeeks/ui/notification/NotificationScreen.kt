@@ -26,7 +26,6 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun NotificationScreen(
-    navigateTo: (NotificationUIEffect) -> Unit,
     onNavigateBack: () -> Unit,
     viewModel: NotificationsViewModel = koinViewModel(),
 ) {
@@ -35,11 +34,7 @@ fun NotificationScreen(
     NotificationContent(
             state = state,
             onClickBack =onNavigateBack,
-            onNotificationClick = { navigateTo(
-                NotificationUIEffect.NavigateToScreens(
-                    NotificationType.NEW_SUMMARY
-                )
-            ) },
+        onNotificationClick = {},
     )
 }
 

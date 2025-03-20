@@ -3,9 +3,9 @@ package json.gradesfromgeeks.ui.home.navigation
 import androidx.core.os.bundleOf
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import json.gradesfromgeeks.navigation.Screen
 import json.gradesfromgeeks.ui.home.HomeScreen
 import json.gradesfromgeeks.ui.home.HomeUIEffect
-import json.gradesfromgeeks.navigation.Screen
 
 
 fun NavGraphBuilder.homeScreen(onNavigateTo: (Screen) -> Unit) {
@@ -17,7 +17,8 @@ fun NavGraphBuilder.homeScreen(onNavigateTo: (Screen) -> Unit) {
                         .also(onNavigateTo)
 
                     is HomeUIEffect.NavigateToMentorProfile -> {
-
+                        Screen.Mentor.args = bundleOf(Pair("type", navigate.id))
+                        Screen.Mentor.withClearBackStack().also(onNavigateTo)
                     }
 
                     is HomeUIEffect.NavigateToSeeAll -> {
@@ -38,7 +39,8 @@ fun NavGraphBuilder.homeScreen(onNavigateTo: (Screen) -> Unit) {
                     }
 
                     HomeUIEffect.NavigateToNotification -> {
-
+                        Screen.Notification.withClearBackStack()
+                            .also(onNavigateTo)
                     }
 
                     else -> {}
