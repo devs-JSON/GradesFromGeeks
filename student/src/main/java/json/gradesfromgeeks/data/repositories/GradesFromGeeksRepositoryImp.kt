@@ -196,8 +196,130 @@ class GradesFromGeeksRepositoryImp(
     }
 
     override suspend fun getMentors(): List<Mentor> {
-        return generatorMentor()
+        return listOf(
+            Mentor(
+                id = "1",
+                name = "Sara Ali",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "University of Baghdad"
+            ),
+            Mentor(
+                id = "2",
+                name = "Ahmed Ali",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "American University of Beirut"
+            ),
+            Mentor(
+                id = "3",
+                name = "Omar Hassan",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "Cairo University"
+            ),
+            Mentor(
+                id = "4",
+                name = "Layla Kareem",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "University of Jordan"
+            ),
+            Mentor(
+                id = "5",
+                name = "Hassan Jaber",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "King Saud University"
+            ),
+            Mentor(
+                id = "6",
+                name = "Maha Saeed",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "Kuwait University"
+            ),
+            Mentor(
+                id = "7",
+                name = "Yousef Nasser",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "Qatar University"
+            ),
+            Mentor(
+                id = "8",
+                name = "Fatima Abdullah",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "Al Ain University"
+            ),
+            Mentor(
+                id = "9",
+                name = "Ali Kareem",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "Lebanese American University"
+            ),
+            Mentor(
+                id = "10",
+                name = "Nour Hassan",
+                imageUrl = getProfileImage(),
+                rate = (0..10).random().toDouble(),
+                numberReviewers = (1..500).random(),
+                summaries = (10..30).random(),
+                videos = (3..10).random(),
+                meeting = (10..25).random(),
+                subjects = generateSubjects(),
+                university = "University of Sharjah"
+            )
+        )
     }
+
 
     override suspend fun getMentorDetails(id: String): Mentor {
         return generatorMentor().find { it.id == id } ?: throw Exception("empty details")
@@ -319,7 +441,7 @@ class GradesFromGeeksRepositoryImp(
             list.add(
                 Mentor(
                     id = "$i",
-                    name = "First Last $i",
+                    name = "Sara Ali",
                     imageUrl = getProfileImage(),
                     rate = (0..10).random().toDouble(),
                     numberReviewers = (1..500).random(),
@@ -327,7 +449,7 @@ class GradesFromGeeksRepositoryImp(
                     videos = 5 + i,
                     meeting = 19 +i,
                     subjects = generateSubjects(),
-                    university = "University $i"
+                    university = "University Baghdad"
                 )
             )
         }
@@ -354,7 +476,7 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("1", "3", "5"),
-                imageUrl = getImage()
+                imageUrl = "https://sourcemaking.com/images/content-public/store/didp-cover-en.png"
             ), Subject(
                 id = "2",
                 name = "Data Structures",
@@ -362,15 +484,16 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("1", "6", "2"),
-                imageUrl = getImage()
-            ), Subject(
+                imageUrl = "https://d2sofvawe08yqg.cloudfront.net/cdatastructuresandalgorithms-secondedition/s_hero2x?1734966432"
+            ),
+            Subject(
                 id = "3",
                 name = "Algorithms",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("4", "2", "1"),
-                imageUrl = getImage()
+                imageUrl = "https://media.s-bol.com/mZZWQW4NYZMG/550x677.jpg"
             ), Subject(
                 id = "4",
                 name = "Software Engineering",
@@ -378,15 +501,16 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("1", "3", "5"),
-                imageUrl = getImage()
-            ), Subject(
+                imageUrl = "https://img.perlego.com/book-covers/1573030/9781498705318.jpg"
+            ),
+            Subject(
                 id = "5",
                 name = "Database Systems",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("1", "3", "8"),
-                imageUrl = getImage()
+                imageUrl = "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1395001597i/18264746.jpg"
             ), Subject(
                 id = "6",
                 name = "Web Development",
@@ -394,7 +518,7 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("1", "3", "5"),
-                imageUrl = getImage()
+                imageUrl = "https://learning.lpi.org/en/learning-materials/030-100/cover-030-100.en_hu_9937dd77a1521ff1.png"
             ), Subject(
                 id = "7",
                 name = "Mobile App Development",
@@ -402,7 +526,7 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors =listOf("1","3","5"),
-                imageUrl = getImage()
+                imageUrl = "https://riseuplabs.com/wp-content/uploads/2021/07/mobile-app-development-lifecycle.jpg"
             ), Subject(
                 id = "8",
                 name = "Artificial Intelligence",
@@ -410,7 +534,7 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("1", "3", "5"),
-                imageUrl = getImage()
+                imageUrl = "https://yes-pdf.com/storage/media/Fvj2qlHA0PQexhTks370zPqo4wlmiJryyAal0NIi.jpg"
             ), Subject(
                 id = "9",
                 name = "Machine Learning",
@@ -418,7 +542,7 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("4", "1", "3", "5"),
-                imageUrl = getImage()
+                imageUrl = "https://newtondesk.com/wp-content/uploads/2022/09/Machine-learning-study-notes-pdf-tutorial.jpg"
             ), Subject(
                 id = "10",
                 name = "Computer Networks",
@@ -426,7 +550,7 @@ class GradesFromGeeksRepositoryImp(
                 summaryNumber = "10",
                 videoNumber = "8",
                 mentors = listOf("3", "1", "3", "5"),
-                imageUrl = getImage()
+                imageUrl = "https://i0.wp.com/bcanepaltu.com/wp-content/uploads/2021/05/COmputer-Networking.png"
             )
         )
     }

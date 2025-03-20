@@ -1,6 +1,5 @@
 package json.gradesfromgeeks.ui.seeAll
 
-import androidx.lifecycle.viewModelScope
 import json.gradesfromgeeks.data.entity.Mentor
 import json.gradesfromgeeks.data.entity.Subject
 import json.gradesfromgeeks.data.entity.University
@@ -9,7 +8,6 @@ import json.gradesfromgeeks.ui.base.BaseViewModel
 import json.gradesfromgeeks.ui.sharedState.toSubjectsUiState
 import json.gradesfromgeeks.ui.sharedState.toUiState
 import json.gradesfromgeeks.ui.sharedState.toUniversityUiState
-import kotlinx.coroutines.launch
 
 class SeeAllViewModel(
     private val type: SeeAllType,
@@ -26,7 +24,7 @@ class SeeAllViewModel(
         when (state.value.type) {
             SeeAllType.Mentors -> getMentors()
             SeeAllType.Universities -> getUniversities()
-            SeeAllType.Subjects -> {}
+            SeeAllType.Subjects -> getSubjects()
         }
     }
 

@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -107,7 +108,11 @@ private fun MentorContent(
         ) {
 
             if (state.isLoading) {
-                CircularProgressIndicator()
+                Box(modifier = Modifier.fillMaxSize()
+                    .background(Theme.colors.background),
+                    contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
             } else {
                 ConstraintLayout(
                     modifier = Modifier
