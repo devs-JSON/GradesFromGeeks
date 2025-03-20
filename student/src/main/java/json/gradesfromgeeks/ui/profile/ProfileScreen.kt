@@ -142,15 +142,6 @@ private fun ProfileContent(
                 painter = painterResource(id = R.drawable.planet),
                 onClick = onLanguageClicked
             )
-
-            GGPreferencesCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                title = stringResource(id = R.string.logout),
-                painter = painterResource(id = R.drawable.logout),
-                onClick = onLogout
-            )
         }
 
         if (state.showBottomSheetTheme) {
