@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">gg</string>
+    <string name="app_name" translatable="false">Grades From Geeks</string>
 
     <string name="see_all">See All</string>
 

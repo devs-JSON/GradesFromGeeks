@@ -1,7 +1,8 @@
-package json.gradesfromgeeks.utils
+package json.gradesfromgeeks.ui.utils
 
 import android.content.Context
 import android.net.Uri
+import android.content.res.Configuration
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.ExperimentalTextApi
@@ -12,6 +13,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import com.tom_roush.pdfbox.pdmodel.PDDocument
 import com.tom_roush.pdfbox.text.PDFTextStripper
 import java.io.IOException
+import java.util.Locale
 
 object Utils {
     @OptIn(ExperimentalTextApi::class)
@@ -35,6 +37,18 @@ object Utils {
         }
         return annotatedLinkString
     }
+}
+
+
+fun updateLanguage(context: Context, language: String) {
+    val locale = Locale(language)
+    Locale.setDefault(locale)
+    val config = Configuration()
+    config.locale = locale
+    context.resources.updateConfiguration(config, context.resources.displayMetrics)
+
+    context.createConfigurationContext(config)
+
     fun readTextFromUri(uri: Uri, context: Context): String {
         var textResult = ""
         context.contentResolver.openInputStream(uri)?.use { inputStream ->

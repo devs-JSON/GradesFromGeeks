@@ -1,5 +1,6 @@
 package json.gradesfromgeeks.ui.base
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
@@ -59,6 +60,8 @@ abstract class BaseViewModel<S, E>(initialState: S) : ViewModel(), KoinComponent
             try {
                 function()
             } catch (e: Exception) {
+                Log.e("TAG", "runWithErrorCheck: ", e)
+                e.printStackTrace()
                 onError()
             }
         }
