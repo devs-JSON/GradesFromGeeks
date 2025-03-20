@@ -35,8 +35,6 @@ fun RootNavGraph(
         modifier = modifier,
     ) {
         mainNavGraph(onNavigateToRoot = navController::navigateTo)
-        searchScreen(onNavigateTo = navController::navigateTo)
-        profileScreen(onNavigateTo = navController::navigateTo)
         chatBotScreen(onNavigateBack = navController::navigateUp)
         onSeeAllScreen(
             onNavigateTo = navController::navigateTo,

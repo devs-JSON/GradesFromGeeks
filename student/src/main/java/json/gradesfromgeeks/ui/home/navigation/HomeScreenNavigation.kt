@@ -17,7 +17,7 @@ fun NavGraphBuilder.homeScreen(onNavigateTo: (Screen) -> Unit) {
                         .also(onNavigateTo)
 
                     is HomeUIEffect.NavigateToMentorProfile -> {
-                        Screen.Mentor.args = bundleOf(Pair("type", navigate.id))
+                        Screen.Mentor.args = bundleOf(Pair("id", navigate.id))
                         Screen.Mentor.withClearBackStack().also(onNavigateTo)
                     }
 
