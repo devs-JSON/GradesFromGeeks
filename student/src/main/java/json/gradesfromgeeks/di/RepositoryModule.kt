@@ -5,5 +5,5 @@ import json.gradesfromgeeks.data.repositories.GradesFromGeeksRepositoryImp
 import org.koin.dsl.module
 
 val RepositoryModule = module {
-    single<GradesFromGeeksRepository> { GradesFromGeeksRepositoryImp(get(),get()) }
+    single<GradesFromGeeksRepository> { GradesFromGeeksRepositoryImp(get(),get(),get()) }
 }

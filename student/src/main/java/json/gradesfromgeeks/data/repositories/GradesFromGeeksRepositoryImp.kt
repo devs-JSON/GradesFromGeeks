@@ -26,11 +26,21 @@ import java.util.Locale
 
 class GradesFromGeeksRepositoryImp(
     private val geminiApi: GeminiApi,
-    private val huggingFaceApi: HuggingFaceApiService
+    private val huggingFaceApi: HuggingFaceApiService,
     private val authorizationPreferences: UserPreferences
 ) : BaseRepository(), GradesFromGeeksRepository {
 
+    override suspend fun queryDocument(context: String, question: String): String {
+        val response = huggingFaceApi.documentQuestionAnswering(
+            HuggingFaceRequest(InputData(question, context))
+        )
 
+        return if (response.isSuccessful) {
+            response.body()?.answer ?: "No answer found"
+        } else {
+            "Error: ${response.errorBody()?.string()}"
+        }
+    }
 
     override suspend fun saveLanguage(language: Language) {
         authorizationPreferences.saveLanguage(language)

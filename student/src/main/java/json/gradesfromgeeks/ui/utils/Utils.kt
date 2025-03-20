@@ -37,18 +37,6 @@ object Utils {
         }
         return annotatedLinkString
     }
-}
-
-
-fun updateLanguage(context: Context, language: String) {
-    val locale = Locale(language)
-    Locale.setDefault(locale)
-    val config = Configuration()
-    config.locale = locale
-    context.resources.updateConfiguration(config, context.resources.displayMetrics)
-
-    context.createConfigurationContext(config)
-
     fun readTextFromUri(uri: Uri, context: Context): String {
         var textResult = ""
         context.contentResolver.openInputStream(uri)?.use { inputStream ->
@@ -64,4 +52,17 @@ fun updateLanguage(context: Context, language: String) {
         }
         return textResult
     }
+}
+
+
+fun updateLanguage(context: Context, language: String) {
+    val locale = Locale(language)
+    Locale.setDefault(locale)
+    val config = Configuration()
+    config.locale = locale
+    context.resources.updateConfiguration(config, context.resources.displayMetrics)
+
+    context.createConfigurationContext(config)
+
+
 }

@@ -57,7 +57,8 @@ import json.gradesFromGeeks.design_system.theme.Theme
 import json.gradesfromgeeks.ui.chat.composable.MessageCard
 import json.gradesfromgeeks.ui.chat.composable.SendTextField
 import json.gradesfromgeeks.R
-import json.gradesfromgeeks.utils.Utils.readTextFromUri
+import json.gradesfromgeeks.ui.utils.Utils
+import json.gradesfromgeeks.ui.utils.Utils.readTextFromUri
 import org.koin.androidx.compose.koinViewModel
 
 
