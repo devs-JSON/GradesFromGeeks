@@ -1,9 +1,9 @@
-package json.gradesfromgeeks.ui.main.navigation.ext
+package json.gradesfromgeeks.navigation.ext
 
 import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
-import json.gradesfromgeeks.ui.main.navigation.Screen
+import json.gradesfromgeeks.navigation.Screen
 
 
 fun NavController.navigateTo(screen: Screen) {

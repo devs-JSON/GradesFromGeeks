@@ -154,7 +154,6 @@ class GradesFromGeeksRepositoryImp(
         ).candidates.last().content.parts.first().asTextOrNull()?:" "
     }
     override suspend fun getVideoUrl(): String {
-//        return "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
         return "https://vbcache1152.videobuster.de/clips/1uyTL32KI_M-Xml3RgwTIw/public/vod005/8bsus0u3w54/video-h264-1.mp4"
     }
 
@@ -320,7 +319,7 @@ class GradesFromGeeksRepositoryImp(
             list.add(
                 Mentor(
                     id = "$i",
-                    name = "First Last$i",
+                    name = "First Last $i",
                     imageUrl = getProfileImage(),
                     rate = (0..10).random().toDouble(),
                     numberReviewers = (1..500).random(),
@@ -354,70 +353,80 @@ class GradesFromGeeksRepositoryImp(
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("1", "3", "5")
+                mentors = listOf("1", "3", "5"),
+                imageUrl = getImage()
             ), Subject(
                 id = "2",
                 name = "Data Structures",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("1", "6", "2")
+                mentors = listOf("1", "6", "2"),
+                imageUrl = getImage()
             ), Subject(
                 id = "3",
                 name = "Algorithms",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("4","2","1")
+                mentors = listOf("4", "2", "1"),
+                imageUrl = getImage()
             ), Subject(
                 id = "4",
                 name = "Software Engineering",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("1","3","5")
+                mentors = listOf("1", "3", "5"),
+                imageUrl = getImage()
             ), Subject(
                 id = "5",
                 name = "Database Systems",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("1","3","8")
+                mentors = listOf("1", "3", "8"),
+                imageUrl = getImage()
             ), Subject(
                 id = "6",
                 name = "Web Development",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("1","3","5")
+                mentors = listOf("1", "3", "5"),
+                imageUrl = getImage()
             ), Subject(
                 id = "7",
                 name = "Mobile App Development",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors =listOf("1","3","5")
+                mentors =listOf("1","3","5"),
+                imageUrl = getImage()
             ), Subject(
                 id = "8",
                 name = "Artificial Intelligence",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("1","3","5")
+                mentors = listOf("1", "3", "5"),
+                imageUrl = getImage()
             ), Subject(
                 id = "9",
                 name = "Machine Learning",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("4","1","3","5")
+                mentors = listOf("4", "1", "3", "5"),
+                imageUrl = getImage()
             ), Subject(
                 id = "10",
                 name = "Computer Networks",
                 mentorNumber = "4",
                 summaryNumber = "10",
                 videoNumber = "8",
-                mentors = listOf("3","1","3","5")
+                mentors = listOf("3", "1", "3", "5"),
+                imageUrl = getImage()
             )
         )
     }
@@ -428,12 +437,12 @@ class GradesFromGeeksRepositoryImp(
             list.add(
                 University(
                     id = "$i",
-                    name = "First Last$i",
+                    name = "First Last $i",
                     imageUrl = getImage(),
                     address = "Seattle, Washington",
                     mentorNumber = "5",
                     summaryNumber = "15",
-                    videoNumber = "1$i",
+                    videoNumber = "1 $i",
                     subjects = getSubject(),
                     mentors = getMentors()
                 )
