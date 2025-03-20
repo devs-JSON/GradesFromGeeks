@@ -11,6 +11,7 @@ fun appModule() = module {
         AiModel,
         RepositoryModule,
         viewModelModule,
+        networkModule
     )
 
     single<Context> { androidApplication().applicationContext }
