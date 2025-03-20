@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -83,19 +84,24 @@ private fun DownloadContent(
             )
         },
     ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = padding.calculateTopPadding())
-                .background(Theme.colors.background)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top
-        ) {
-
-            if (state.isLoading) {
+        if (state.isLoading) {
+            Box(modifier = Modifier.fillMaxSize()
+                .background(Theme.colors.background),
+                contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
-            } else {
+            }
+        } else {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = padding.calculateTopPadding())
+                    .background(Theme.colors.background)
+                    .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top
+            ) {
+
+
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()

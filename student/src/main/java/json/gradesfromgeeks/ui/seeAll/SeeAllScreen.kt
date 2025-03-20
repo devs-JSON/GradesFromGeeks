@@ -99,9 +99,11 @@ private fun SeeAllContent(
             ) {
 
                 if (state.isLoading) {
-                item {
-
-                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    item {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
                             CircularProgressIndicator()
                         }
                     }
