@@ -10,14 +10,17 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -51,6 +54,7 @@ import json.gradesFromGeeks.design_system.components.setStatusBarColor
 import json.gradesFromGeeks.design_system.theme.PlusJakartaSans
 import json.gradesFromGeeks.design_system.theme.Theme
 import json.gradesfromgeeks.R
+import json.gradesfromgeeks.data.entity.Summaries
 import json.gradesfromgeeks.ui.review.composable.VideoLayout
 import json.gradesfromgeeks.utils.setScreenOrientation
 import kotlinx.coroutines.flow.collectLatest
@@ -71,7 +75,8 @@ fun ReviewScreen(
             state = state,
             onBack = navigateBack,
             player = viewModel.player,
-            onClickFullVideoScreen = viewModel::onClickFullVideoScreen
+            onClickFullVideoScreen = viewModel::onClickFullVideoScreen,
+            onClickSummaries = viewModel::onClickSummaries
     )
 
     val color = Theme.colors.background
@@ -108,6 +113,7 @@ private fun onEffect(effect: ReviewUIEffect?, context: Context) {
 private fun ReviewContent(
     state: ReviewUIState,
     onClickFullVideoScreen: (Boolean) -> Unit,
+    onClickSummaries: () -> Unit,
     onBack: () -> Unit,
     player: Player
 ) {
@@ -151,7 +157,10 @@ private fun ReviewContent(
                     tabs = listOf(
                         "Info" to { InfoComposable() },
                         "Review" to { ReviewComposable() },
-                        "Summarize" to { SummarizeComposable() }
+                        "Summarize" to { SummarizeComposable(
+                            summaries = state.summaries,
+                            onClickSummaries = onClickSummaries
+                        ) }
                     ),
                 )
             }
@@ -247,46 +256,122 @@ private fun ReviewComposable() {
 
 
 @Composable
-private fun SummarizeComposable() {
-    Column(
-        modifier = Modifier
-            .wrapContentHeight()
-            .fillMaxWidth(),
-        verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Image(
-            painter = painterResource(id = R.drawable.ic_summarize),
-            contentDescription = "summarize_icon",
-            modifier = Modifier.padding(top = 45.dp)
+private fun SummarizeComposable(
+    summaries: String = "",
+    onClickSummaries: () -> Unit
+) {
+    if (summaries.isNotEmpty()) {
+        Divider(
+            color = Theme.colors.quaternaryShadesDark,
         )
-
-        Text(
-            text = stringResource(id = R.string.nothing_to_show),
-            style = Theme.typography.bodyLarge,
-            color = Theme.colors.primary
-        )
-
-        Text(
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            text = stringResource(id = R.string.click_summarize),
-            style = Theme.typography.labelLarge,
-            textAlign = TextAlign.Center,
-            color = Theme.colors.primary
-        )
-
-        GGButton(
-            title = "Summarize",
-            onClick = { /*TODO*/ },
+        LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 24.dp)
-        )
+                .padding(horizontal = 16.dp)
+        ) {
+            item {
+                FormattedText(summaries)
+            }
+        }
+    } else {
+        Column(
+            modifier = Modifier
+                .wrapContentHeight()
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.SpaceBetween,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
+            Image(
+                painter = painterResource(id = R.drawable.ic_summarize),
+                contentDescription = "summarize_icon",
+                modifier = Modifier.padding(top = 45.dp)
+            )
+
+            Text(
+                text = stringResource(id = R.string.nothing_to_show),
+                style = Theme.typography.bodyLarge,
+                color = Theme.colors.primary
+            )
+
+            Text(
+                modifier = Modifier
+                    .padding(top = 4.dp)
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                text = stringResource(id = R.string.click_summarize),
+                style = Theme.typography.labelLarge,
+                textAlign = TextAlign.Center,
+                color = Theme.colors.primary
+            )
+
+            GGButton(
+                title = "Summarize",
+                onClick = onClickSummaries,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 24.dp)
+            )
+
+        }
     }
+
 }
 
+
+@Composable
+private fun FormattedText(textFromApi: String) {
+    val lines = textFromApi.split("\n").map { it.trim() }.filter { it.isNotEmpty() }
+
+    Column(modifier = Modifier.padding(16.dp)) {
+        lines.forEachIndexed { index, line ->
+            when {
+                line.startsWith("*   **") -> {
+                    Row(modifier = Modifier.padding(bottom = 4.dp)) {
+                        Text(text = "○ ",
+                            style = Theme.typography.labelLarge,
+                            color = Theme.colors.primary,
+                        )
+
+                        Text(text = line.replace("**"," ").replace("*","").trim(),
+                            style = Theme.typography.labelLarge,
+                            color = Theme.colors.primaryShadesDark,)
+                    }
+                }
+
+                line.contains("**") -> {
+                    Text(
+                        text = line.replace("**", ""),
+                        style = Theme.typography.labelLarge,
+                        color = Theme.colors.primaryShadesDark,
+                        modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
+                    )
+
+                }
+
+
+                line.startsWith("*") -> {
+                    Row(modifier = Modifier.padding(start = 8.dp, bottom = 4.dp)) {
+                        Text(text = "○  ",
+                            style = Theme.typography.labelLarge,
+                            color = Theme.colors.primary,
+                        )
+
+                        Text(text = line.removePrefix("*").trim(),
+                            style = Theme.typography.labelLarge,
+                            color = Theme.colors.primaryShadesDark,)
+                    }
+                }
+
+                else -> {
+                    Text(
+                        text = line,
+                        style = Theme.typography.labelLarge,
+                        color = Theme.colors.primaryShadesDark,
+                        modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
+                    )
+                }
+            }
+        }
+    }
+}
