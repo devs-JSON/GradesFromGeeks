@@ -1,8 +1,71 @@
 <resources>
 
     <!-- home section -->
-    <string name="start_chatting_with_chat_bot_now">الان يمكن بدأ الدردشة مع chat bot</string>
-    <string name="by_select_the_university_you_want_to_learn_more_about_and_obtain_references_from">يرجى تحديد الجامعة التي ترغب في معرفة المزيد عنها والحصول على المراجع منها.</string>
+    <string name="home_title">الرئيسية</string>
+    <string name="mentors">المرشدين</string>
+    <string name="subjects">المواد</string>
+    <string name="universities">الجامعات</string>
+    <string name="welcome_chatbot">كيف يمكنني مساعدتك؟</string>
+    <string name="Grades_From_Geek">علامات من الأذكياء</string>
+    <string name="Raise_your_grades_with_a_group_of_geeks">ارفع درجاتك\nمع مجموعة من الأذكياء</string>
+    <string name="Raise_your_grades_with_a_group_of_geeks_description">أنت تخطو الخطوة الأولى في تغيير حياتك. دعنا نرشدك خلالها.</string>
+    <string name="Get_ready_for_a_lot_of_summaries">استعد للكثير من الملخصات.</string>
+    <string name="Get_ready_for_a_lot_of_summaries_description">العديد من الملخصات والشروحات في جميع المواد الأكاديمية من مختلف الجامعات.</string>
+    <string name="Ask_experts_directly_and_get_answers">اسأل الخبراء مباشرة\nواحصل على إجابات.</string>
+    <string name="Ask_experts_directly_and_get_answers_description">تواصل مباشرة مع الطلاب الكبار للحصول على رؤى شخصية ووضوح. اسأل وتعلم.</string>
+    <string name="join_now">انضم الآن</string>
+    <string name="join_after">"انضم بعد..</string>
 
+    <!-- search section -->
+    <string name="search_title">البحث</string>
+
+    <!-- profile section -->
+    <string name="profile_title">الملف الشخصي</string>
+    <string name="preferences">التفضيلات</string>
+    <string name="theme">السمة</string>
+    <string name="language">اللغة</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="app_language">لغة التطبيق</string>
+    <string name="choose_theme">اختار سمه</string>
+
+
+    <string name="services_text"><![CDATA[من خلال الاستمرار، أنت توافق على شروط خدمة Habeet وسياسة الخصوصية]]></string>
+    <string name="services_text_link"><![CDATA[شروط الخدمة وسياسة الخصوصية]]></string>
+    <string name="let_do_it">لنقم بها</string>
+
+    <string name="user_role">عندما يُطلب أي سؤال غير متعلق بمصادر %%1$s ، يرجى قول: "لا أعلم".</string>
+    <string name="model_role">يرجى سؤالي حول شيء يتعلق بمصادر من %%1$s  فقط، حتى أستطيع الإجابة عليك.</string>
+
+    <string name="download_title">التنزيلات</string>
+    <string name="nothing_to_show">لا يوجد شيئ لعرضه</string>
+    <string name="empty_search_description">اكتب شيئًا في مربع البحث لعرض النتائج</string>
+    <string name="search">ابحث عن جامعة، مادة، أو مرشد.</string>
+
+    <string name="why_meeting">لماذا تريد هذا الاجتماع؟</string>
+    <string name="book">احجز الان</string>
+    <string name="by_select_the_university_you_want_to_learn_more_about_and_obtain_references_from">يرجى تحديد الجامعة التي ترغب في معرفة المزيد عنها والحصول على المراجع منها.</string>
+    <string name="start_chatting_with_chat_bot_now">الان يمكن بدأ الدردشة مع chat bot</string>
+    <string name="accepted_your_request_for_one_one_meeting">وافق على طلبك لاجراء لقاء one- one</string>
+    <string name="meeting_with_you_will_come_soon_stay_tuned">سيكون اجتماعه معك قريبا, كن على ترقب.</string>
+    <string name="has_scheduled_an_upcoming_meeting">"قد حدد موعدا لاجتماع قريبا!"</string>
+    <string name="published_a_new_video">قام بنشر فيديو جديد.</string>
+    <string name="published_a_new_summary">قام بنشر ملخص جديد.</string>
+    <string name="do_some_active_to_have_notification"><![CDATA[قم بنشطات ما لتحصل على اشعارات >”<]]></string>
+
+    <!-- review section -->
+    <string name="help">مساعدة</string>
+    <string name="click_summarize">اضغط زر التلخيص للحصول على الشرح كنص.</string>
+
+    <!-- mentor section -->
+    <string name="summaries">ملخصات</string>
+    <string name="videos">فيديوات</string>
+    <string name="meetings">اجتماعات</string>
+    <string name="schedule_one_to_one">حدد موعدًا لاجتماع واحد</string>
+    <string name="free">مجاني</string>
+
+    <string name="or_by_raising_your_reference_and_answering_the_question_from_it">أو عن طريق رفع مرجعك والإجابة على السؤال منه</string>
+    <string name="document_attached">تم إرفاق المستند ✓</string>
+    <string name="select_university">اختر الجامعة</string>
+    <string name="upload_your_pdf">ارفع ملف PDF الخاص بك</string>
 </resources>
 

@@ -14,6 +14,12 @@ data class ChatUiState(
     val selectedUniversity: Int = -1,
     val universityName: String = "",
     val isUniversitySheetOpen: Boolean = false,
+    val isDocumentMode: Boolean = false,
+    val documentText: String = "",
+    val isDocumentAttached: Boolean = false,
+    val isDocumentProcessing: Boolean = false,
+    val hasSelectedSource: Boolean = false,
+    val showSourceSelector: Boolean = true
 ) {
 
 }

@@ -138,5 +138,6 @@ dependencies {
     implementation(libs.datastore.preferences)
 
     implementation (libs.bouquet)
+    implementation (libs.pdfbox.android)
 
 }
