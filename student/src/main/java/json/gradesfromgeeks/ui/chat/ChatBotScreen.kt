@@ -140,7 +140,7 @@ private fun ChatBotContent(
                                 onValueChanged = onDismissRequest,
                                 isOpen = state.isUniversitySheetOpen,
                                 onToggle = onDismissRequest,
-                                hint = "Select University",
+                                hint = stringResource(R.string.select_university),
                                 colors = OutlinedTextFieldDefaults.colors(
                                     focusedContainerColor = Color.Transparent,
                                     unfocusedContainerColor = Color.Transparent,
@@ -217,7 +217,7 @@ private fun ChatBotContent(
                             onValueChanged = onDismissRequest,
                             isOpen = state.isUniversitySheetOpen,
                             onToggle = onDismissRequest,
-                            hint = "Select University",
+                            hint = stringResource(R.string.select_university),
                         )
 
                         Divider(
@@ -227,7 +227,7 @@ private fun ChatBotContent(
                         )
 
                         Text(
-                            text = "or_by_raising_your_reference_and_answering_the_question_from_it)",
+                            text = stringResource(R.string.or_by_raising_your_reference_and_answering_the_question_from_it),
                             style = Theme.typography.bodyLarge,
                             color = Theme.colors.ternaryShadesDark,
                             modifier = Modifier.padding(top = 8.dp, end = 38.dp, start = 38.dp),
@@ -245,7 +245,7 @@ private fun ChatBotContent(
                             )
                         ) {
                             Text(
-                                "Upload your pdf",
+                                text = stringResource(R.string.upload_your_pdf),
                                 modifier = Modifier.fillMaxWidth(),
                                 textAlign = androidx.compose.ui.text.style.TextAlign.Center,
                                 style = MaterialTheme.typography.labelLarge,
@@ -255,7 +255,7 @@ private fun ChatBotContent(
 
                     }}
                 if (state.isDocumentMode) {
-                    Text("Document attached ✓", color = Color.Green)
+                    Text(stringResource(R.string.document_attached), color = Color.Green)
                 }
             }
             AnimatedVisibility(visible = !state.isFirstEnter) {
