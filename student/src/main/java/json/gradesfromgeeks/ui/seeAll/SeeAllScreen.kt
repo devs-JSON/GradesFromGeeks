@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -89,9 +90,6 @@ private fun SeeAllContent(
             onBack = onBack
         )
 
-        if (state.isLoading) {
-            CircularProgressIndicator()
-        } else {
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -99,6 +97,16 @@ private fun SeeAllContent(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(16.dp)
             ) {
+
+                if (state.isLoading) {
+                item {
+
+                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            CircularProgressIndicator()
+                        }
+                    }
+                }
+
                 items(state.mentors) { mentor ->
                     GGMentor(
                         modifier = Modifier.fillMaxWidth(),
@@ -134,7 +142,6 @@ private fun SeeAllContent(
                     )
                 }
             }
-        }
     }
 }
 
