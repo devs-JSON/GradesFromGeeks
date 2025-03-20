@@ -154,8 +154,171 @@ class GradesFromGeeksRepositoryImp(
         ).candidates.last().content.parts.first().asTextOrNull()?:" "
     }
     override suspend fun getVideoUrl(): String {
-        return "https://vbcache1152.videobuster.de/clips/1uyTL32KI_M-Xml3RgwTIw/public/vod005/8bsus0u3w54/video-h264-1.mp4"
+        return "https://www.kaltura.com/p/1838561/sp/183856100/playManifest/entryId/1_3ysdu8d4/protocol/https/format/applehttp/flavorIds/1_v94arpvc/ks/djJ8MTgzODU2MXzE7qmX-CtFR9N3ibayqga2fIS4VZIRFynkSt_AQAqRAQdaLCATg6HXM1DF2ddgK4Rxmq-wG_hlO9eC67ad_hjOSd8b-HOgUmATEU7nTnr9n0E1I85UQT1uLfRuEqPzJjcTHPDXowRTSTN-qkvJf4NX05o0yzcTMdJSt_PnXsIeuUwsu5toZMwuNJLN5Goo0Smzb1D2dUxjZxe6MW_wC50u0ETYsfMuNBQBOT3anEEjPsj7KVVgeBtiyo_Agr0NwnuX85xVJ6YzvNAhaCWkDO5bwelmHVPzAjU4vOsCvyyFu7GmissopTPnYnd3rtA537K3JyYj-Kbpd-rxxUCk1lRfhK0fEFpNdswWofDQ4joznWeBOCfJaYRoR9CsbLUzIdfVugPZW9U598oSp-CVxbLT_tStWoowGjfHYfbVNa9zv8AIcJR4QYlId69D05yrukwiN2jy7F87lWyD47Pl8-yqtzsZs77DjdOphaGEY_DfXakOngNdQVB1VjSgkb1Ll3A=/a.m3u8?uiConfId=55310943&playSessionId=c6737052-ee6e-e726-9965-10a5949cf2d9:67b5aea0-57f5-0f48-3ed7-ae376c638a9a&referrer=aHR0cHM6Ly9sZWFybi5zdW55ZW1waXJlLmVkdS9tZWRpYS9TYW1wbGUlMkJQZXJzdWFzaXZlJTJCU3BlZWNoLm1wNC8xXzN5c2R1OGQ0LzMwNzM2MDg3Mj91dG1fc291cmNlPWNoYXRncHQuY29t&clientTag=html5:v7.166"
     }
+
+    override suspend fun getSummarizeTextFromVideo(): String {
+        val videoTranscript = "On a chilly November\n" +
+                "night two years ago, a Ford explorer\n" +
+                "was charging down a California highway. The 16 year old\n" +
+                "driver and three of his friends were\n" +
+                "returning from a concert in Los Angeles. These young people were good students,\n" +
+                "gifted athletes, talented artists\n" +
+                "and musicians, and none were drunk\n" +
+                "or impaired by drugs. They were, however,\n" +
+                "driving too fast, and the driver lost\n" +
+                "control of the car. The car went into a\n" +
+                "ditch and hit a tree. The driver and one\n" +
+                "passenger were killed. The other two passengers escaped with\n" +
+                "severe injuries. One of these passengers\n" +
+                "was my nephew. Today, he is\n" +
+                "finishing high school in a wheelchair, a wheelchair\n" +
+                "he will occupy for the rest of his life. Unfortunately, tragic auto\n" +
+                "accidents involving teenage drivers\n" +
+                "are much too common in all parts\n" +
+                "of the United States. After researching the\n" +
+                "subject for my speech, I have come to the\n" +
+                "same conclusion as the experts that the\n" +
+                "best way to prevent such accidents is to\n" +
+                "raise the age for full driving privileges\n" +
+                "to 18 or older. I know from my audience analysis questionnaire that most of you\n" +
+                "oppose such a plan. But I also know from\n" +
+                "my questionnaire that most of you recognize that 16 and 17 year\n" +
+                "old drivers are less skilled and less responsible than\n" +
+                "older drivers. So I ask you\n" +
+                "to listen with an open mind\n" +
+                "while we discuss some of the problems associated with\n" +
+                "teenage driving. Some of the major\n" +
+                "causes of the problems and a plan that\n" +
+                "will go a long way towards solving\n" +
+                "some of the problems. No matter how one\n" +
+                "looks at the evidence, it all leads to one fact. There are too many motor\n" +
+                "vehicle accidents, deaths and injuries involving teenage drivers. According to the National Highway Traffic Safety\n" +
+                "Administration, while teenagers make up 7% of the nation's\n" +
+                "licensed drivers, they represent 14% of all motor vehicle\n" +
+                "fatalities. The N HTSA reports\n" +
+                "that last year, 3,657 drivers\n" +
+                "aged 16 to 20 were killed in\n" +
+                "automobile accidents. In addition to\n" +
+                "killing the drivers, these same accidents\n" +
+                "took the lives of 2384 teenage\n" +
+                "passengers. But these accidents didn't affect teenagers alone. They also took\n" +
+                "the lives of 2625 people aged\n" +
+                "21 or older. So the total number of people killed last year in automobile accidents involving teenage drivers? W. 8,666, almost exactly\n" +
+                "the number of full time students\n" +
+                "at this campus. Evidence also shows that the younger the driver,\n" +
+                "the greater the risk. According to the Insurance Institute for\n" +
+                "highway safety, 16 year olds have the highest percentage of crashes involving\n" +
+                "speeding, the highest percentage of single vehicle crashes, and the highest\n" +
+                "percentage of crashes involving\n" +
+                "driver error. Moreover, as USA\n" +
+                "today reports, 16 year olds are three\n" +
+                "times more likely to be involved\n" +
+                "in fatal crashes than our older drivers. Now that we've seen the extent of the problem, we can explore its causes. One of the causes\n" +
+                "is in experience. New drivers just\n" +
+                "haven't had enough time on the road to develop their\n" +
+                "driving skills. But inexperience is far from the only cause\n" +
+                "of the problem. After all, there\n" +
+                "will always be inexperienced drivers, even if the driving age is raised to 21\n" +
+                "or even to 25. A second cause is revealed\n" +
+                "by brain research. Findings from the National Institute of Mental Health show that the brain of an average 16\n" +
+                "year old has not developed to\n" +
+                "the point where he or she is able to effectively\n" +
+                "judge the risk of a given situation. Doctor J Get who led\n" +
+                "the research team that conducted the study\n" +
+                "states when a smart, talented, very mature teen does something that a parent might\n" +
+                "call stupid. It's this\n" +
+                "undundeveloped part of the brain that has\n" +
+                "most likely failed. Stephen Lohenstein,\n" +
+                "a medical professor at the University\n" +
+                "of Colorado, has just finished a five\n" +
+                "year study comparing the traffic records of 16 year old drivers to\n" +
+                "drivers aged 25 to 49. His conclusion, deliberate\n" +
+                "risk taking and dangerous and aggressive\n" +
+                "driving behaviors predominated among\n" +
+                "the 16 year olds. A third cause of motor vehicle\n" +
+                "fatalities among teenage drivers\n" +
+                "is night driving. According to the\n" +
+                "Washington Post, when 16 year olds get behind the wheel of\n" +
+                "a car after dark, the likelihood of having an accident increases\n" +
+                "several times over. Of course,\n" +
+                "nighttime driving is less safe for everyone. But it becomes\n" +
+                "particularly dangerous when\n" +
+                "combined with a young driver's\n" +
+                "inexperience and reduced ability\n" +
+                "to gauge risk. Finally, there\n" +
+                "is the presence of teenage passengers\n" +
+                "in the car. We all know what it's like to drive\n" +
+                "with our friends. The stereos up loud, cell phones are ringing, everybody's laughing\n" +
+                "and having a good time. The problem is that\n" +
+                "all these factors create distractions, distractions that\n" +
+                "too often result in accidents,\n" +
+                "injury and death. Alan Williams,\n" +
+                "chief scientist at the Insurance\n" +
+                "Institute for Highway Safety\n" +
+                "reports that one teenage\n" +
+                "passenger doubles the risk of a fatal crash. With two or more\n" +
+                "passengers, the risk is five\n" +
+                "times greater. Remember my\n" +
+                "nephew's accident, I mentioned at the\n" +
+                "start of my speech. There were three\n" +
+                "passengers in the car. So the extent of the\n" +
+                "problem is clear. So, too, are its causes. What steps can we take to help bring\n" +
+                "about a solution? First, we need a\n" +
+                "national policy that no one can receive a learner's permit\n" +
+                "until age 16 and no one can receive full driving privileges\n" +
+                "until age 18. This will allow 16\n" +
+                "year olds time to gain driving experience before having an\n" +
+                "unrestricted license, and to reach a stage of brain development\n" +
+                "where they are better able to handle the risk and responsibility\n" +
+                "of driving. Second, we need to\n" +
+                "restrict nighttime driving so as to keep\n" +
+                "younger drivers off the road when\n" +
+                "conditions are riskiest. Some states have\n" +
+                "tried to address this problem by banning teenagers from\n" +
+                "driving after midnight or 1:00 A.M. But as the\n" +
+                "Insurance Institute for Highway\n" +
+                "Safety reports, these laws don't\n" +
+                "go far enough. According to\n" +
+                "the institute, we need a 9:00\n" +
+                "P.M. Or 10:00 P.M. Limit until drivers\n" +
+                "reach the age of 18. Third, we need to\n" +
+                "restrict the number of teenage passengers\n" +
+                "and cars driven by younger drivers. In fact, says,\n" +
+                "Kevin Quinlan, from the National Transportation\n" +
+                "Safety Board. Passenger restriction is the first and\n" +
+                "foremost measure you can take to reduce teenage\n" +
+                "driving fatalities. According to Quinlan,\n" +
+                "the optimal policy would be to bar\n" +
+                "drivers aged 17 or younger from having\n" +
+                "any passengers in the car unless the riders are adults or\n" +
+                "family members. Drivers in the age\n" +
+                "of 17 to 18 should not be allowed\n" +
+                "to carry more than one teenage\n" +
+                "passenger. Okay. Now, I know\n" +
+                "all of this might sound harsh and\n" +
+                "perhaps inconvenient. But the evidence\n" +
+                "is clear that it would save a significant\n" +
+                "number of lives. If you want to\n" +
+                "discuss Harsh, said one father who\n" +
+                "17 year old son died in an accident\n" +
+                "three years ago, I can talk to\n" +
+                "you about Harsh. It's being awakened at\n" +
+                "2:30 in the morning by the state patrol telling you that your son has\n" +
+                "just been killed. Everyone in this room has lived to college age. But this year alone, thousands of\n" +
+                "teenage drivers will not live that long. And they won't live\n" +
+                "that long due to factors that we\n" +
+                "can prevent. There's no way to\n" +
+                "solve all the problems we encounter on the road, but we can do something to help save the lives of younger drivers and make the road safer\n" +
+                "for all of us. As I said earlier, this might sound harsh\n" +
+                "or inconvenient. But I know my\n" +
+                "nephew would gladly trade both for the\n" +
+                "chance to walk again."
+
+        val summary =  geminiApi.summarizeText(videoTranscript)
+        return summary
+    }
+
 
     override suspend fun getIsFirstTimeUseApp(): Boolean {
         return authorizationPreferences.getIsFirstTimeUseApp() ?: true
@@ -319,7 +482,6 @@ class GradesFromGeeksRepositoryImp(
             )
         )
     }
-
 
     override suspend fun getMentorDetails(id: String): Mentor {
         return generatorMentor().find { it.id == id } ?: throw Exception("empty details")

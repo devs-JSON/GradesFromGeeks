@@ -20,7 +20,7 @@ interface GradesFromGeeksRepository {
     suspend fun getUniversitiesName(): List<String>
     suspend fun getIsFirstTimeUseApp(): Boolean
     suspend fun saveIsFirstTimeUseApp(isFirstTimeUseApp: Boolean)
-
+    suspend fun getSummarizeTextFromVideo(): String
     suspend fun getSearch(keyword: String, limit: Int): SearchResult
 
     //region Download

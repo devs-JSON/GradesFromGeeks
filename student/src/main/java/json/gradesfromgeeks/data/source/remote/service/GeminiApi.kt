@@ -7,6 +7,20 @@ import com.google.ai.client.generativeai.type.content
 
 class GeminiApi(private val model: GenerativeModel) {
 
+    suspend fun summarizeText(text: String): String {
+        val response = model.generateContent(
+            content {
+                text(
+                    """
+                    please  summarize the  this video Transcript $text and make it like point sentences              
+                """.trimIndent()
+                )
+                text(":")
+            }
+        )
+        return response.text?:""
+    }
+
     suspend fun generateUniversityContent(question: String, university: String): GenerateContentResponse {
         val response = model.generateContent(
             content {

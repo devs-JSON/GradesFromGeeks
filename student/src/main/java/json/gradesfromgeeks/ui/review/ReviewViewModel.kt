@@ -1,6 +1,7 @@
 package json.gradesfromgeeks.ui.review
 
 import android.net.Uri
+import android.util.Log
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import json.gradesfromgeeks.data.repositories.GradesFromGeeksRepository
@@ -37,6 +38,7 @@ class ReviewViewModel(
     }
 
     private fun onError() {
+        Log.e("TAG", "onError Summaries")
         updateState {
             ReviewUIState(
                     isError = true,
@@ -49,6 +51,19 @@ class ReviewViewModel(
 
     fun onClickFullVideoScreen(isFullScreen: Boolean) {
         updateState { it.copy(isVideoFullScreen = isFullScreen) }
+    }
+
+    fun onClickSummaries() {
+        tryToExecute(
+                mindfulMentorRepository::getSummarizeTextFromVideo,
+                ::onSuccessSummaries,
+                ::onError
+        )
+    }
+
+    private fun onSuccessSummaries(text: String) {
+        Log.e("TAG", "onSuccessSummaries: $text")
+        updateState { it.copy(summaries = text) }
     }
 
 }
