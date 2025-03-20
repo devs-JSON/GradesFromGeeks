@@ -13,6 +13,45 @@ class ChatBotViewModel(
      getUniversities()
     }
 
+    init {
+        getUniversities()
+    }
+
+    fun onDocumentSelected(text: String) {
+        updateState {
+            it.copy(
+                documentText = text,
+                isDocumentMode = true,
+                hasSelectedSource = true,
+                showSourceSelector = false,
+                isFirstEnter = false
+            )
+        }
+    }
+
+    private fun handleDocumentQuery(question: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            updateState { it.copy(isDocumentProcessing = true) }
+
+            val response = mentorRepository.queryDocument(
+                state.value.documentText,
+                question
+            )
+
+            val messages = state.value.messages.toMutableList().apply {
+                add(MessageUIState(isMe = false, message = response))
+            }
+
+            updateState {
+                it.copy(
+                    messages = messages,
+                    isDocumentProcessing = false
+                )
+            }
+        }
+    }
+
+
     private fun getUniversities() {
         viewModelScope.launch {
             val universities = mentorRepository.getUniversitiesName()
@@ -20,9 +59,13 @@ class ChatBotViewModel(
         }
     }
 
+    // Modify dismiss to handle both cases
     fun onDismissRequest() {
-        updateState { it.copy(isUniversitySheetOpen = !state.value.isUniversitySheetOpen) }
+        if (!state.value.hasSelectedSource) {
+            updateState { it.copy(isUniversitySheetOpen = !it.isUniversitySheetOpen) }
+        }
     }
+
 
     private fun getData(msg: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -38,17 +81,39 @@ class ChatBotViewModel(
         }
     }
 
-
     fun onSendClicked() {
-        val oldMsg = state.value.message
-        val messages = state.value.messages.toMutableList()
-        messages.add(MessageUIState(isMe = true, message = oldMsg))
-        updateState { it.copy(messages = messages, message = "") }
-        getData(oldMsg)
+        val message = state.value.message
+        val messages = state.value.messages.toMutableList().apply {
+            add(MessageUIState(isMe = true, message = message))
+        }
+
+        updateState {
+            it.copy(
+                messages = messages,
+                message = "",
+                isLoading = true
+            )
+        }
+
+        if (state.value.isDocumentMode) {
+            handleDocumentQuery(message)
+        } else {
+            getData(message)
+        }
     }
 
     fun onSelectUniversity(index: Int) {
-        updateState { it.copy(messages = emptyList(), universityName =state.value.universities[index] , isUniversitySheetOpen = false) }
+        updateState {
+            it.copy(
+                messages = emptyList(),
+                universityName = state.value.universities[index],
+                isUniversitySheetOpen = false,
+                isDocumentMode = false,
+                hasSelectedSource = true,
+                showSourceSelector = false,
+                isFirstEnter = false
+            )
+        }
         updateState { it.copy(selectedUniversity = index, isFirstEnter = false) }
     }
 
