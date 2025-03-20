@@ -19,7 +19,7 @@ const val navigationRouteSubject = "Subject"
 
 const val navigationRouteIndividualMeeting = "individualMeeting"
 const val navigationRouteNotification = "notification"
-
+const val navigationRoutePDFReader = "pDFReader"
 
 
 sealed class Screen(
@@ -75,5 +75,6 @@ sealed class Screen(
     data object Review: Screen(navigationRouteReview)
 
     data object Notification : Screen(navigationRouteNotification)
+    data object PDFReader : Screen(navigationRoutePDFReader)
 
 }

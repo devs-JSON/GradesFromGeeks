@@ -6,10 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import json.gradesfromgeeks.ui.home.navigation.homeScreen
 import json.gradesfromgeeks.navigation.Screen
 import json.gradesfromgeeks.navigation.profileScreen
 import json.gradesfromgeeks.navigation.searchScreen
+import json.gradesfromgeeks.ui.downloads.navigation.downloadsScreen
+import json.gradesfromgeeks.ui.home.navigation.homeScreen
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Composable
@@ -26,5 +27,6 @@ fun MainNavGraph(
         homeScreen(onNavigateToRoot)
         searchScreen(onNavigateToRoot)
         profileScreen(onNavigateToRoot)
+        downloadsScreen(onNavigateToRoot)
     }
 }
